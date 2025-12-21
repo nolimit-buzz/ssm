@@ -1,0 +1,7 @@
+{
+  "name": "Swap Station V08",
+  "description": "Africa's leading clean-energy battery-swapping network for commercial logistics fleets.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
