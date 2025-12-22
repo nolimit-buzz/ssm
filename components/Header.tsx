@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, User, ChevronRight, MapPin } from 'lucide-react';
-
+import logoLight from '../public/logo-light.png';
+import logoDark from '../public/logo.png'
 interface HeaderProps {
   scrolled: boolean;
   currentPage: 'home' | 'about' | 'services' | 'contact' | 'locator' | 'team';
@@ -10,13 +11,13 @@ interface HeaderProps {
 const Logo: React.FC<{ scrolled: boolean; onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'locator' | 'team') => void }> = ({ scrolled, onNavigate }) => {
   const color = scrolled ? "#10b981" : "#ffffff";
   const textColor = scrolled ? "text-slate-900" : "text-white";
-
+  const image = scrolled? logoDark:logoLight
   return (
     <button 
       onClick={() => onNavigate('home')}
       className={`flex items-center transition-all duration-700 ease-[0.16, 1, 0.3, 1] ${scrolled ? 'gap-2' : 'gap-4'}`}
     >
-     <img src="/logo.png" alt="Logo" className="w-auto h-10" />
+     <img src={image} alt="Logo" className="w-auto h-10" />
     </button>
   );
 };
