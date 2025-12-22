@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate }) =>
         </nav>
 
         <div className="flex items-center gap-6">
-          <button 
+          {/* <button 
             onClick={() => onNavigate('locator')}
             className={`hidden sm:flex items-center gap-2 border-2 px-6 py-2.5 rounded-[15rem] text-[10px] font-black transition-all uppercase tracking-widest duration-700 ${
             scrolled 
@@ -84,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate }) =>
           } group`}>
             <MapPin className="w-4 h-4 transition-transform group-hover:scale-110" />
             <span>Find a Station</span>
-          </button>
+          </button> */}
           
           <button className={`rounded-[15rem] text-[11px] font-black transition-all shadow-xl active:scale-95 uppercase tracking-[0.15em] flex items-center gap-2 group ${
             scrolled 

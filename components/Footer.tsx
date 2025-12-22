@@ -3,19 +3,7 @@ import { Twitter, Linkedin, Github, ArrowUpRight } from 'lucide-react';
 
 const FooterLogo: React.FC = () => {
   return (
-    <div className="flex items-center gap-4">
-      <svg width="52" height="52" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 4C7.58172 4 4 7.58172 4 12V18L20 4H12Z" fill="#10b981"/>
-        <path d="M4 30V36C4 40.4183 7.58172 44 12 44H20L4 30Z" fill="#10b981"/>
-        <path d="M44 36V30L28 44H36C40.4183 44 44 40.4183 44 36Z" fill="#10b981"/>
-        <path d="M44 12C44 7.58172 40.4183 4 36 4H28L44 18V12Z" fill="#10b981"/>
-        <path d="M22 6L6 22H18V42L38 22H26L22 6Z" fill="#10b981"/>
-      </svg>
-      <div className="flex flex-col leading-none text-white">
-        <span className="text-2xl font-black tracking-tighter">SwapStation</span>
-        <span className="text-[10px] font-bold tracking-[0.3em] opacity-40 uppercase">Mobility.</span>
-      </div>
-    </div>
+   <img src="/logo-light.png" alt="Logo" className="w-auto h-10" />
   );
 };
 
@@ -67,7 +55,7 @@ const Footer: React.FC = () => {
               {/* Background Image Layer - Adjusted for better visibility */}
               <div className="absolute inset-0 z-0">
                 <img 
-                  src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=2000&auto=format&fit=crop" 
+                  src="/logo-white.png" 
                   alt="Insight Background" 
                   className="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-1000"
                 />

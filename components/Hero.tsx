@@ -8,7 +8,7 @@ const HERO_CONTENT = {
   subheadline: "Swap Station is building the infrastructure for Africa's transition to electric mobility. Instant swaps, zero downtime, 100% clean energy.",
   badge: "The Sovereign Mobility Network",
   ctaPrimary: "Request a Demo",
-  ctaSecondary: "Explore Stations",
+  // ctaSecondary: "Explore Stations",
   // High-impact infrastructure image
   backgroundImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" 
 };
@@ -86,10 +86,10 @@ const Hero: React.FC = () => {
           <button className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-[15rem] font-black text-[0.875rem] transition-all transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(16,185,129,0.4)] active:scale-95 shadow-xl uppercase tracking-widest">
             {HERO_CONTENT.ctaPrimary}
           </button>
-          <button className="w-full sm:w-auto glass hover:bg-white/10 text-white px-10 py-5 rounded-[15rem] font-black text-[0.875rem] flex items-center justify-center gap-4 transition-all transform hover:-translate-y-1 active:scale-95 group uppercase tracking-widest">
+          {/* <button className="w-full sm:w-auto glass hover:bg-white/10 text-white px-10 py-5 rounded-[15rem] font-black text-[0.875rem] flex items-center justify-center gap-4 transition-all transform hover:-translate-y-1 active:scale-95 group uppercase tracking-widest">
             {HERO_CONTENT.ctaSecondary}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform opacity-60" />
-          </button>
+          </button> */}
         </motion.div>
       </div>
 
