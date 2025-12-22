@@ -9,12 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "lucide-react": "0.475.0",
+    "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "11.11.17",
     "leaflet": "1.9.4",
-    "react-leaflet": "4.2.1"
+    "lucide-react": "0.475.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-leaflet": "4.2.1",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
