@@ -62,10 +62,10 @@ const WhatBuilding: React.FC = () => {
             className="max-w-3xl"
           >
             <span className="text-emerald-600 font-black uppercase tracking-[0.5em] text-xs mb-6 block">What We’re Building</span>
-            <h2 className="text-5xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-8">
+            <h2 className="text-4xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-8">
               We’re Building the Energy Layer for Africa’s Electric Logistics.
             </h2>
-            <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl">
+            <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-2xl">
               Swap Station Mobility is the clean-energy infrastructure backbone powering logistics ecosystems across Sub-Saharan Africa — from riders to stations to solar.
             </p>
           </motion.div>
@@ -98,7 +98,7 @@ const WhatBuilding: React.FC = () => {
               className="group p-10 rounded-2xl bg-slate-50 border border-slate-100/80 transition-all duration-500 hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] hover:border-emerald-500/30"
             >
               <div className="mb-10 flex justify-between items-start">
-                <div className="w-16 h-16 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-emerald-600 shadow-sm group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500 group-hover:scale-110">
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-500 group-hover:scale-110">
                   <pillar.icon className="w-8 h-8" />
                 </div>
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-emerald-500 transition-colors">
@@ -106,7 +106,7 @@ const WhatBuilding: React.FC = () => {
                 </span>
               </div>
               
-              <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight leading-none">
+              <h4 className="text-xl font-black text-slate-950 mb-4 tracking-tight leading-none">
                 {pillar.title}
               </h4>
               <p className="text-slate-500 font-medium text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">

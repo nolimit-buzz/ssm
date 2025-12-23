@@ -154,14 +154,14 @@ const MetricsSection: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-8"
+            className="text-4xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-8"
           >
             Your Fleet — Powered by <br className="hidden md:block" /> Smart, Swappable Tech.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-slate-500 max-w-3xl mx-auto text-lg font-medium leading-relaxed"
+            className="text-slate-500 max-w-3xl mx-auto text-md font-medium leading-relaxed"
           >
             SwapStation Mobility combines advanced 2W/3W EVs, intelligent lithium battery packs, and IoT-enabled SwapStations to deliver scalable logistics electrification—built for uptime, safety, and speed.
           </motion.p>

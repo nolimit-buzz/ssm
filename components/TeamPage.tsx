@@ -31,10 +31,10 @@ const TeamCard: React.FC<{ name: string; role: string; image: string; delay: num
     </div>
     
     <div className="px-1">
-      <h3 className={`${isLarge ? 'text-2xl' : 'text-xl'} font-black text-slate-900 tracking-tight leading-tight mb-1 group-hover:text-emerald-600 transition-colors`}>
+      <h3 className={`${isLarge ? 'text-xl' : 'text-lg'} font-black text-slate-900 tracking-tight leading-tight mb-1 group-hover:text-emerald-600 transition-colors`}>
         {name}
       </h3>
-      <p className="text-[11px] font-black text-emerald-600 uppercase tracking-[0.2em]">
+      <p className="text-xs font-black text-emerald-600 uppercase tracking-[0.2em]">
         {role}
       </p>
     </div>
@@ -100,7 +100,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-[4.5rem] font-black text-white tracking-tighter leading-[1.1] mb-12"
+            className="text-3xl md:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-12"
           >
             Driven by <span className="text-gradient">Integrity</span> <br /> & Global Expertise.
           </motion.h1>
@@ -136,12 +136,12 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
              </motion.h2> */}
              
              {/* <div className="mt-4 md:hidden">
-                <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px]">LEADERSHIP</span>
+            <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px]">LEADERSHIP</span>
              </div> */}
           </div>
           <div className="mb-20 text-center lg:text-left">
             <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">LEADERSHIP</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-950 tracking-tighter leading-tight">
+            <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight">
               Executive Leadership Team.
             </h2>
           </div>
@@ -162,7 +162,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 text-center lg:text-left">
             <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">THE TEAM</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-950 tracking-tighter leading-tight">
+            <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight">
               Operational & Technical Excellence.
             </h2>
           </div>
@@ -182,12 +182,12 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Join Our Mission</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Help us build the energy <br /> backbone for Africa.
           </h2>
           <button 
             onClick={() => onNavigate('contact')}
-            className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20"
+            className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20"
           >
             Careers at SwapStation
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />

@@ -80,7 +80,7 @@ const ImpactCard: React.FC<{
             initial: { color: isDefaultHovered ? "#FFFFFF" : "#0f172a" },
             hover: { color: isDefaultHovered ? "#0f172a" : "#FFFFFF" }
           }}
-          className="text-5xl md:text-6xl font-black mb-8 tracking-tighter"
+          className="text-4xl md:text-5xl font-black mb-8 tracking-tighter"
         >
           <ImpactCounter value={value} suffix={suffix} isFloat={isFloat} />
         </motion.div>
@@ -141,7 +141,7 @@ const ImpactSection: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[3rem] font-black text-slate-900 tracking-tighter leading-[1] mb-12"
+              className="text-4xl font-black text-slate-900 tracking-tighter leading-[1] mb-12"
             >
               Elevate your <span className="text-gradient">fleet performance</span> with clean energy solutions.
             </motion.h2>
@@ -195,8 +195,8 @@ const TeamCard: React.FC<{ name: string; role: string; image: string; delay: num
         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
       />
     </div>
-    <h4 className="text-xl font-bold text-white tracking-tight leading-tight mb-1">{name}</h4>
-    <p className="text-[11px] font-bold text-emerald-500 uppercase tracking-widest">{role}</p>
+    <h4 className="text-lg font-bold text-white tracking-tight leading-tight mb-1">{name}</h4>
+    <p className="text-xs font-bold text-emerald-500 uppercase tracking-widest">{role}</p>
   </motion.div>
 );
 
@@ -261,7 +261,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-[4rem] font-black text-white tracking-tighter leading-[1.1] mb-12"
+            className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-12"
           >
             Enabling the transition <br /> to <span className="text-gradient">electric mobility.</span>
           </motion.h1>
@@ -286,15 +286,15 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               Who We Are
             </span>
             
-            <h2 className="text-[3rem] font-black text-slate-900 tracking-tighter leading-[1] mb-12">
+            <h2 className="text-4xl font-black text-slate-900 tracking-tighter leading-[1] mb-12">
               Technology-enabled, <span className="text-gradient">Vision-driven.</span>
             </h2>
             
             <div className="space-y-6 mb-12">
-              <p className="text-slate-600 text-lg font-semibold leading-relaxed">
+              <p className="text-slate-600 text-base font-semibold leading-relaxed">
                 SwapStation Mobility Limited was set up to accelerate the adoption of e-mobility in both urban and rural markets, to improve livelihoods and the environment by providing renewable powered battery swapping facility to electric vehicles in Africa.
               </p>
-              <p className="text-slate-500 text-lg font-medium leading-relaxed">
+              <p className="text-slate-500 text-base font-medium leading-relaxed">
                 Blackaion Capital and FundCo Capital Managers are co-sponsoring Swapstation Mobility Limited—an electric vehicle and battery charging infrastructure company that enables access to low-cost, clean mobility alternatives to the internal combustion engine (ICE), initially targeting the logistics and last-mile delivery sector.
               </p>
             </div>
@@ -313,11 +313,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               <div className="flex items-center gap-12 grayscale opacity-60">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-emerald-600 rounded-lg" />
-                  <span className="font-black text-slate-900 text-sm tracking-tight">Blackaion Capital</span>
+                  <span className="font-black text-slate-900 text-xs tracking-tight">Blackaion Capital</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-emerald-950 rounded-lg" />
-                  <span className="font-black text-slate-900 text-sm tracking-tight">FundCo Managers</span>
+                  <span className="font-black text-slate-900 text-xs tracking-tight">FundCo Managers</span>
                 </div>
               </div>
             </div>
@@ -347,11 +347,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               viewport={{ once: true }}
               className="absolute bottom-[-40px] left-[-40px] md:bottom-12 md:left-[-60px] max-w-[340px] bg-[#051F19] p-10 md:p-14 shadow-[0_40px_100px_rgba(0,0,0,0.3)] border border-white/5"
             >
-              <div className="text-white text-5xl md:text-6xl font-black tracking-tighter mb-6">
+              <div className="text-white text-4xl md:text-5xl font-black tracking-tighter mb-6">
                 Over US$10 <br /> billion
               </div>
               <div className="w-full h-[1px] bg-white/10 mb-8" />
-              <p className="text-emerald-100/60 text-sm font-medium leading-relaxed">
+              <p className="text-emerald-100/60 text-xs font-medium leading-relaxed">
                 in completed financing across Africa in energy and infrastructure projects by Blackaion Principals.
               </p>
             </motion.div>
@@ -370,17 +370,17 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-500 mb-8 block">
                 Our team
               </span>
-              <h2 className="text-[3rem] font-black text-white tracking-tight leading-[1] mb-12">
+              <h2 className="text-4xl font-black text-white tracking-tight leading-[1] mb-12">
                 Our vision is to solve <span className="text-gradient">transport and mobility</span> challenges across Africa.
               </h2>
               
               <div className="space-y-6 mb-10">
-                <p className="text-slate-400 font-medium leading-relaxed text-lg">
+                <p className="text-slate-400 font-medium leading-relaxed text-base">
                   SwapStation Mobility was founded by managing partners with over 38 years in sustainable energy, clean energy finance, project development, infrastructure development and project finance.
                 </p>
               </div>
 
-              <button className="px-8 py-3 rounded-xl border border-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/5 transition-all">
+              <button className="px-8 py-3 rounded-xl border border-white/10 text-white font-black text-xs uppercase tracking-widest hover:bg-white/5 transition-all">
                 Read more
               </button>
             </div>
@@ -423,10 +423,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
+          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-2xl font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
             Contact for Strategic Info
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>

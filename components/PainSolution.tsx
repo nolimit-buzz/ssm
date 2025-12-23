@@ -24,14 +24,14 @@ const PainSolution: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-black mb-6 text-slate-950 tracking-tighter leading-[1.1]"
+            className="text-4xl md:text-5xl font-black mb-6 text-slate-950 tracking-tighter leading-[1.1]"
           >
             Reimagining <br className="md:hidden" /> Fleet Logistics.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-slate-500 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             Traditional combustion fleets are holding your business back with volatile costs and high maintenance. Swap Station is the modern alternative.
           </motion.p>

@@ -38,10 +38,10 @@ const WhyPartner: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="text-emerald-100 font-black uppercase tracking-[0.4em] text-xs mb-6 block">The Trust Factor</span>
-            <h2 className="text-5xl font-black tracking-tighter leading-[1.1] mb-10">
+            <h2 className="text-4xl font-black tracking-tighter leading-[1.1] mb-10">
               Why Fleet Operators, Financiers, and Regulators Trust Us.
             </h2>
-            <p className="text-emerald-50 font-medium text-lg leading-relaxed max-w-xl">
+            <p className="text-emerald-50 font-medium text-base leading-relaxed max-w-xl">
               We're not just a platform — we're infrastructure. We enable the backbone of sustainable logistics through trusted delivery and energy financing relationships.
             </p>
           </motion.div>

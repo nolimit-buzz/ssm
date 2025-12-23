@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl md:text-[120px] font-black mb-10 tracking-tighter leading-[1.02] text-white max-w-6xl mx-auto"
+          className="text-4xl md:text-9xl font-black mb-10 tracking-tighter leading-[1.02] text-white max-w-6xl mx-auto"
         >
           {HERO_CONTENT.headline.split(' ').map((word, i) => (
             <span key={i} className={word === 'Energy.' || word === 'Fleet' ? 'text-gradient' : ''}>
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-lg md:text-2xl text-slate-300 max-w-4xl mx-auto mb-16 leading-relaxed font-normal"
+          className="text-base md:text-xl text-slate-300 max-w-4xl mx-auto mb-16 leading-relaxed font-normal"
         >
           {HERO_CONTENT.subheadline}
         </motion.p>
@@ -83,10 +83,10 @@ const Hero: React.FC = () => {
           transition={{ duration: 1, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <button className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-[15rem] font-black text-[0.875rem] transition-all transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(16,185,129,0.4)] active:scale-95 shadow-xl uppercase tracking-widest">
+          <button className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-[15rem] font-black text-sm transition-all transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(16,185,129,0.4)] active:scale-95 shadow-xl uppercase tracking-widest">
             {HERO_CONTENT.ctaPrimary}
           </button>
-          {/* <button className="w-full sm:w-auto glass hover:bg-white/10 text-white px-10 py-5 rounded-[15rem] font-black text-[0.875rem] flex items-center justify-center gap-4 transition-all transform hover:-translate-y-1 active:scale-95 group uppercase tracking-widest">
+          {/* <button className="w-full sm:w-auto glass hover:bg-white/10 text-white px-10 py-5 rounded-[15rem] font-black text-sm flex items-center justify-center gap-4 transition-all transform hover:-translate-y-1 active:scale-95 group uppercase tracking-widest">
             {HERO_CONTENT.ctaSecondary}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform opacity-60" />
           </button> */}

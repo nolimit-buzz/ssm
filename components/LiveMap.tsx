@@ -22,7 +22,7 @@ const LiveMap: React.FC = () => {
               <RefreshCcw className="w-5 h-5 animate-spin-slow" />
               <span>Real-Time Intelligence</span>
             </div>
-            <h2 className="text-5xl font-black mb-10 leading-[1.1] text-slate-950 tracking-tighter">
+            <h2 className="text-4xl font-black mb-10 leading-[1.1] text-slate-950 tracking-tighter">
               Total Visibility Into Your Fleet’s Fuel.
             </h2>
             <p className="text-slate-500 text-lg mb-12 leading-relaxed font-medium">
@@ -33,16 +33,16 @@ const LiveMap: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-8 mb-16">
               <div className="p-10 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="text-emerald-600 text-[60px] font-black mb-2 tabular-nums leading-none tracking-tighter">158</div>
+                <div className="text-emerald-600 text-6xl font-black mb-2 tabular-nums leading-none tracking-tighter">158</div>
                 <div className="text-slate-400 text-sm font-black uppercase tracking-widest">Active Batteries</div>
               </div>
               <div className="p-10 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="text-emerald-600 text-[60px] font-black mb-2 tabular-nums leading-none tracking-tighter">94%</div>
+                <div className="text-emerald-600 text-6xl font-black mb-2 tabular-nums leading-none tracking-tighter">94%</div>
                 <div className="text-slate-400 text-sm font-black uppercase tracking-widest">Network Ready</div>
               </div>
             </div>
 
-            <button className="bg-slate-950 text-white px-12 py-6 rounded-2xl font-black text-xl flex items-center gap-4 hover:bg-emerald-600 transition-all group shadow-2xl">
+            <button className="bg-slate-950 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center gap-4 hover:bg-emerald-600 transition-all group shadow-2xl">
               Launch Network Map
               <div className="w-12 h-1.5 bg-emerald-500 rounded-full" />
             </button>
@@ -67,7 +67,7 @@ const LiveMap: React.FC = () => {
 
               {/* Station Hotspots */}
               <div className="space-y-6 relative z-10">
-                <h4 className="text-slate-950 font-black mb-12 flex items-center gap-4 text-4xl tracking-tight">
+                <h4 className="text-slate-950 font-black mb-12 flex items-center gap-4 text-3xl tracking-tight">
                   <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center">
                     <MapPin className="w-7 h-7 text-emerald-600" />
                   </div>

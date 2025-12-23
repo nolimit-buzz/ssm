@@ -68,7 +68,7 @@ const HowItWorks: React.FC = () => {
             className="max-w-2xl"
           >
             <span className="text-emerald-600 font-black uppercase tracking-[0.5em] text-xs mb-6 block">Battery Swap Workflow</span>
-            <h2 className="text-5xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-6">
+            <h2 className="text-4xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-6">
               Swap. Ride. Repeat. <br /> All Under 3 Minutes.
             </h2>
           </motion.div>
@@ -116,7 +116,7 @@ const HowItWorks: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-black mb-4 text-slate-950 tracking-tight group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-xl font-black mb-4 text-slate-950 tracking-tight group-hover:text-emerald-600 transition-colors">
                   {step.title}
                 </h3>
                 <p className="text-slate-500 font-medium text-sm leading-relaxed max-w-[240px]">

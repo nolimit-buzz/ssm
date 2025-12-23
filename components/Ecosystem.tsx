@@ -24,7 +24,7 @@ const PartnerCard: React.FC<{ name: string }> = ({ name }) => (
     </div>
     <div>
       <div className="text-slate-500 font-black uppercase tracking-widest text-[8px] mb-2">Strategic Partner</div>
-      <div className="text-2xl font-black text-white tracking-tight leading-tight">
+      <div className="text-xl font-black text-white tracking-tight leading-tight">
         {name}
       </div>
     </div>
@@ -79,10 +79,10 @@ const Ecosystem: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="text-emerald-500 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Our Ecosystem</span>
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-tight mb-8">
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter leading-tight mb-8">
               Seamlessly Integrated <br /> with Africa’s Giants.
             </h2>
-            <p className="text-slate-400 text-lg font-medium leading-relaxed max-w-xl mb-12">
+            <p className="text-slate-400 text-base font-medium leading-relaxed max-w-xl mb-12">
               From last-mile delivery experts to multinational logistics aggregators, we provide the energy layer that allows fleet operators to focus on their core business.
             </p>
             
@@ -97,7 +97,7 @@ const Ecosystem: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-emerald-500 font-black uppercase tracking-widest text-[9px] mb-0.5">Founding Investor</div>
-                    <div className="text-[1.125rem] font-bold text-white tracking-tight">Blackaion Capital</div>
+                    <div className="text-lg font-bold text-white tracking-tight">Blackaion Capital</div>
                   </div>
                 </div>
 
@@ -108,7 +108,7 @@ const Ecosystem: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-emerald-500 font-black uppercase tracking-widest text-[9px] mb-0.5">Infrastructure Partner</div>
-                    <div className="text-[1.125rem] font-bold text-white tracking-tight leading-tight">FundCo Capital Managers</div>
+                    <div className="text-lg font-bold text-white tracking-tight leading-tight">FundCo Capital Managers</div>
                   </div>
                 </div>
               </div>
@@ -119,7 +119,7 @@ const Ecosystem: React.FC = () => {
                   {features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                      <span className="text-slate-200 font-medium tracking-tight text-[1rem]">{feature}</span>
+                      <span className="text-slate-200 font-medium tracking-tight text-base">{feature}</span>
                     </div>
                   ))}
                 </div>

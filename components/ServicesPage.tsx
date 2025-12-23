@@ -36,7 +36,7 @@ const ServiceCard: React.FC<{
     </div>
     <div className="mt-8">
       <div className="text-emerald-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4">Core Offering</div>
-      <h3 className="text-2xl font-black text-slate-950 tracking-tight leading-tight mb-6 group-hover:text-emerald-600 transition-colors">
+      <h3 className="text-xl font-black text-slate-950 tracking-tight leading-tight mb-6 group-hover:text-emerald-600 transition-colors">
         {title}
       </h3>
       <p className="text-slate-500 font-medium leading-relaxed text-sm">
@@ -57,7 +57,7 @@ const SpecializationPill: React.FC<{ label: string; delay: number }> = ({ label,
     <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white transition-all">
       <ShieldCheck className="w-5 h-5" />
     </div>
-    <span className="text-base font-bold text-white tracking-tight">{label}</span>
+    <span className="text-sm font-bold text-white tracking-tight">{label}</span>
   </motion.div>
 );
 
@@ -133,7 +133,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-[4rem] font-black text-white tracking-tighter leading-[1] mb-12"
+            className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1] mb-12"
           >
             Defining the Future <br /> of <span className="text-gradient">Africa's Mobility.</span>
           </motion.h1>
@@ -141,7 +141,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-3xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-3xl mx-auto text-lg font-medium leading-relaxed"
           >
             SwapStation Mobility is the clean-energy infrastructure backbone powering logistics ecosystems through a vertically integrated service stack.
           </motion.p>
@@ -160,7 +160,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-8 block">
                 The Service Stack
               </span>
-              <h2 className="text-5xl font-black text-slate-950 tracking-tighter leading-[1.1]">
+              <h2 className="text-4xl font-black text-slate-950 tracking-tighter leading-[1.1]">
                 End-to-end infrastructure <br /> for <span className="text-gradient">clean energy mobility.</span>
               </h2>
             </div>
@@ -201,14 +201,14 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               <span className="text-white font-black uppercase tracking-[0.4em] text-[10px] mb-8 block opacity-80">
                 Technical Mastery
               </span>
-              <h2 className="text-[3rem] font-black text-white tracking-tighter leading-[1] mb-12">
+              <h2 className="text-4xl font-black text-white tracking-tighter leading-[1] mb-12">
                 Specialized in <br /> <span>Complex Integration.</span>
               </h2>
-              <p className="text-emerald-50 text-lg font-medium leading-relaxed max-w-xl mb-12">
+              <p className="text-emerald-50 text-base font-medium leading-relaxed max-w-xl mb-12">
                 Our team brings over 38 years of collective experience in sustainable energy, project finance, and infrastructure development to solve Sub-Saharan Africa's mobility challenges.
               </p>
               
-              <button className="flex items-center gap-4 text-white font-black text-sm uppercase tracking-widest hover:gap-6 transition-all group">
+              <button className="flex items-center gap-4 text-white font-black text-xs uppercase tracking-widest hover:gap-6 transition-all group">
                 Download Capabilities PDF
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-emerald-600 transition-all">
                   <ArrowUpRight className="w-5 h-5" />
@@ -232,10 +232,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
+          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
             Contact for Strategic Info
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>

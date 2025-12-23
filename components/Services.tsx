@@ -38,7 +38,7 @@ const ServiceGroup: React.FC<{
       initial="initial"
       whileHover="interaction"
       viewport={{ once: true }}
-      className="relative p-10 md:p-14 rounded-3xl bg-emerald-900/50 backdrop-blur-3xl border border-white/20 hover:border-white/60 transition-all duration-500 overflow-hidden flex flex-col h-full group shadow-[0_40px_100px_-20px_rgba(2,44,34,0.7)] ring-1 ring-white/10"
+      className="relative p-8 md:p-10 rounded-3xl bg-emerald-900/50 backdrop-blur-3xl border border-white/20 hover:border-white/60 transition-all duration-500 overflow-hidden flex flex-col h-full group shadow-[0_40px_100px_-20px_rgba(2,44,34,0.7)] ring-1 ring-white/10"
     >
       {/* Dynamic Background Image Layer */}
       <motion.div 
@@ -61,10 +61,10 @@ const ServiceGroup: React.FC<{
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
         <div className="flex items-center gap-6 mb-12">
-          <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-emerald-600 shadow-[0_20px_40px_rgba(0,0,0,0.3)] group-hover:scale-110 transition-transform duration-500 ring-4 ring-white/10">
-            <Icon className="w-8 h-8" />
+          <div className="w-12 h-12 shrink-0 rounded-2xl bg-white flex items-center justify-center text-emerald-600 shadow-[0_20px_40px_rgba(0,0,0,0.3)] group-hover:scale-110 transition-transform duration-500 ring-4 ring-white/10">
+            <Icon className="w-6 h-6" />
           </div>
-          <h3 className="text-2xl font-black text-white tracking-widest uppercase drop-shadow-md">{title}</h3>
+          <h3 className="text-xl font-black text-white tracking-widest uppercase drop-shadow-md">{title}</h3>
         </div>
 
         <div className="space-y-8 flex-grow">
@@ -74,8 +74,8 @@ const ServiceGroup: React.FC<{
                 <item.icon className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-white font-black text-lg tracking-tight mb-1">{item.label}</div>
-                <div className="text-emerald-50 text-sm font-medium leading-relaxed group-hover:text-white transition-colors">{item.sub}</div>
+                <div className="text-white font-black text-md tracking-tight mb-1">{item.label}</div>
+                <div className="text-emerald-50 text-xs font-medium leading-relaxed group-hover:text-white transition-colors">{item.sub}</div>
               </div>
             </div>
           ))}
@@ -194,7 +194,7 @@ const Services: React.FC = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-8"
+            className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-8"
           >
             Built for Fleet Scale — <br className="hidden md:block" /> Designed for Operational Simplicity.
           </motion.h2>
