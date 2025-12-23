@@ -44,15 +44,16 @@ const TeamCard: React.FC<{ name: string; role: string; image: string; delay: num
 const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
   const management = [
     { 
-      name: "Abiodun Oni", 
-      role: "Co-Founder", 
-      image: "/abiodun.png" 
-    },
-    { 
       name: "Obiora Okoye", 
       role: "Co-Founder", 
       image: "/obiora.jpg" 
     },
+    { 
+      name: "Abiodun Oni", 
+      role: "Co-Founder", 
+      image: "/abiodun.png" 
+    }
+   
     
   ];
 
