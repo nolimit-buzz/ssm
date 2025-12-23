@@ -54,7 +54,7 @@ const ServiceGroup: React.FC<{
           alt={title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#064e3b]/90 backdrop-blur-[4px]" />
+        <div className="absolute inset-0 bg-[#064e3b]/90 backdrop-blur-[1px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-[#064e3b]/60 to-transparent" />
       </motion.div>
 
@@ -96,7 +96,7 @@ const Services: React.FC = () => {
     {
       title: "Infrastructure",
       icon: Settings,
-      bgImage: "https://images.unsplash.com/photo-1548335122-f548ca1288f6?q=80&w=2000&auto=format&fit=crop",
+      bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop",
       isReversed: true,
       items: [
         { icon: Zap, label: "Swap Stations", sub: "Modular solar + grid integrated units." },

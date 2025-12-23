@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
             <div className="mb-8">
               <FooterLogo />
             </div>
-            <p className="text-slate-500 max-w-sm mb-10 text-lg font-medium leading-relaxed">
+            <p className="text-slate-500 max-w-sm mb-10 text-md font-medium leading-relaxed">
               Empowering the clean energy transition for commercial logistics through smart battery-swapping infrastructure.
             </p>
             <div className="flex items-center gap-4">
