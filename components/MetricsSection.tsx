@@ -96,7 +96,7 @@ const AssetCard: React.FC<{
 const MetricsSection: React.FC = () => {
   const assets = [
     {
-      title: "E-Okada Bikes",
+      title: "TANKVOLT",
       // Professional isolated EV Bike render style
       image: "/e-okada.jpeg",
       bgColor: "bg-emerald-50",
