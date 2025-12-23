@@ -25,7 +25,7 @@ const LiveMap: React.FC = () => {
             <h2 className="text-4xl font-black mb-10 leading-[1.1] text-slate-950 tracking-tighter">
               Total Visibility Into Your Fleet’s Fuel.
             </h2>
-            <p className="text-slate-500 text-lg mb-12 leading-relaxed font-medium">
+            <p className="text-slate-500 text-md mb-12 leading-relaxed font-medium">
               Every station, battery, and swap is tracked. Our enterprise dashboard 
               gives logistics managers the granular data needed to optimize route planning 
               and energy consumption across the entire network.
@@ -55,9 +55,9 @@ const LiveMap: React.FC = () => {
             className="relative"
           >
             {/* Seamless background flow */}
-            <div className="aspect-[4/5] md:aspect-square bg-white rounded-2xl p-10 md:p-14 relative overflow-hidden border border-slate-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]">
+            <div className="aspect-[4/5] md:aspect-square bg-white rounded-2xl p-10 md:p-12 relative overflow-hidden border border-slate-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]">
               {/* Subtle Map Underlay */}
-              <div className="absolute inset-0 opacity-[0.04] pointer-events-none p-12 grayscale">
+              <div className="absolute inset-0 opacity-[0.04] pointer-events-none p-10 grayscale">
                  <img 
                    src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1920&auto=format&fit=crop" 
                    className="w-full h-full object-cover" 
@@ -78,17 +78,17 @@ const LiveMap: React.FC = () => {
                   <motion.div 
                     key={i}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center justify-between p-8 rounded-2xl bg-white border border-slate-50 transition-all cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.04)] group"
+                    className="flex items-center justify-between px-5 py-7 rounded-2xl bg-white border border-slate-50 transition-all cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.04)] group"
                   >
                     <div className="flex items-center gap-6">
                       <div className="w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.4)]" />
                       <div>
-                        <div className="font-black text-slate-950 text-2xl tracking-tight leading-none mb-3">{station.name}</div>
+                        <div className="font-black text-slate-950 text-xl tracking-tight leading-none mb-3">{station.name}</div>
                         <div className="text-[11px] text-slate-400 font-black uppercase tracking-[0.2em]">{station.uptime} Uptime</div>
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-4xl font-black text-emerald-600 leading-none mb-2 tabular-nums">{station.batteries}</div>
+                      <div className="text-3xl font-black text-emerald-600 leading-none mb-2 tabular-nums">{station.batteries}</div>
                       <div className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">Available</div>
                     </div>
                   </motion.div>
