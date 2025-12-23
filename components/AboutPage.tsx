@@ -213,23 +213,23 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
   const team = [
     { 
       name: "Obiora Okoye", 
-      role: "Managing Partner", 
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" 
+      role: "Co-Founder", 
+      image: "/obiora.jpg" 
+    },
+    { 
+      name: "Abiodun Oni", 
+      role: "Co-Founder", 
+      image: "/abiodun.png" 
     },
     { 
       name: "Okwu Njoku", 
-      role: "Director", 
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" 
-    },
-    { 
-      name: "Jojololami Ngene", 
-      role: "Technical Analyst", 
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+      role: "Director, Non-Executive", 
+      image: "/okwu.jpg" 
     },
     { 
       name: "Oluwatobi Sholanke", 
       role: "Financial Analyst", 
-      image: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=800&auto=format&fit=crop" 
+      image: "/ahmed.png" 
     }
   ];
 

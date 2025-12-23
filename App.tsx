@@ -50,7 +50,7 @@ const App: React.FC = () => {
             <Services />
             <PainSolution />
             <MetricsSection />
-            <LiveMap />
+            {/* <LiveMap /> */}
             <WhyPartner />
             <Ecosystem />
           </>
