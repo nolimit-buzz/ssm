@@ -44,20 +44,21 @@ const TeamCard: React.FC<{ name: string; role: string; image: string; delay: num
 const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
   const management = [
     { 
-      name: "Obiora Okoye", 
-      role: "Managing Partner", 
-      image: "/obiora.jpg" 
+      name: "Abiodun Oni", 
+      role: "Co-Founder", 
+      image: "/abiodun.png" 
     },
     { 
-      name: "Okwu Njoku", 
-      role: "Director", 
-      image: "/okwu.jpg" 
-    }
+      name: "Obiora Okoye", 
+      role: "Co-Founder", 
+      image: "/obiora.jpg" 
+    },
+    
   ];
 
   const coreTeam = [
     // { name: "Jojololami Ngene", role: "Technical Analyst", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" },
-    { name: "Oluwatobi Sholanke", role: "Financial Analyst", image: "/solanke.png" },
+    // { name: "Oluwatobi Sholanke", role: "Financial Analyst", image: "/solanke.png" },
     { name: "Ahmed Musa", role: "Head of Operations", image: "/ahmed.png" },
     // { name: "Chioma Uzor", role: "Senior Hardware Engineer", image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?q=80&w=800&auto=format&fit=crop" },
     // { name: "David Kone", role: "Grid Integration", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" },
@@ -109,7 +110,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             A collective of specialists with over 38 years of experience in clean energy finance, infrastructure development, and automotive engineering.
           </motion.p>
@@ -140,7 +141,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
              </div> */}
           </div>
           <div className="mb-20 text-center lg:text-left">
-            <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">LEADERSHIP</span>
+            <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">FOUNDERS</span>
             <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight">
               Executive Leadership Team.
             </h2>
