@@ -17,7 +17,7 @@ const Logo: React.FC<{ scrolled: boolean; onNavigate: (page: 'home' | 'about' | 
       onClick={() => onNavigate('home')}
       className={`flex items-center transition-all duration-700 ease-[0.16, 1, 0.3, 1] ${scrolled ? 'gap-2' : 'gap-4'}`}
     >
-     <img src={image} alt="Logo" className="w-auto h-10" />
+     <img src={image} alt="Logo" className="w-auto h-8" />
     </button>
   );
 };

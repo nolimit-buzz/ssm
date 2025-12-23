@@ -3,7 +3,7 @@ import { Twitter, Linkedin, Github, ArrowUpRight } from 'lucide-react';
 
 const FooterLogo: React.FC = () => {
   return (
-   <img src="/logo-light.png" alt="Logo" className="w-auto h-10" />
+   <img src="/logo-light.png" alt="Logo" className="w-auto h-8" />
   );
 };
 
