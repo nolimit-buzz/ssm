@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               {/* Background Image Layer - Adjusted for better visibility */}
               <div className="absolute inset-0 z-0">
                 <img 
-                  src="/logo-white.png" 
+                  src="https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=2000&auto=format&fit=crop" 
                   alt="Insight Background" 
                   className="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-1000"
                 />

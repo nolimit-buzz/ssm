@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate }) =>
             <button 
               key={link.name}
               onClick={() => handleLinkClick(link)} 
-              className={`hover:text-emerald-500 transition-colors relative group uppercase ${
+              className={`hover:text-emerald-500 transition-colors relative group uppercase text-xs ${
                 (currentPage === link.page && !link.anchor) ? 'text-emerald-500' : ''
               }`}
             >
