@@ -51,7 +51,7 @@ const App: React.FC = () => {
             <PainSolution />
             <MetricsSection />
             {/* <LiveMap /> */}
-            <WhyPartner />
+            {/* <WhyPartner /> */}
             <Ecosystem />
           </>
         ) : currentPage === 'about' ? (
