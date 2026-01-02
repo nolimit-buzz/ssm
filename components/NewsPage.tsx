@@ -39,7 +39,7 @@ export const GENERATED_NEWS = [
     date: "August 05, 2024",
     title: "Strategic Partnership with Glovo Announced",
     excerpt: "Powering the next generation of green delivery fleets with zero-downtime swaps and integrated telemetry.",
-    image: "https://images.unsplash.com/photo-1556740758-90de2929450a?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1758519289022-5f9dea0d8cdc?q=80&w=2531&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-100"

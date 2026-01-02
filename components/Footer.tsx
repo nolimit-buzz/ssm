@@ -1,13 +1,15 @@
 import React from 'react';
 import { Twitter, Linkedin, Github, ArrowUpRight } from 'lucide-react';
-
+interface FooterProps {
+  onNavigate?: (page: any) => void;
+}
 const FooterLogo: React.FC = () => {
   return (
    <img src="/logo-light.png" alt="Logo" className="w-auto h-8" />
   );
 };
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-[#020617] border-t border-white/5 px-6 md:px-12 py-24 overflow-hidden relative">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -80,9 +82,9 @@ const Footer: React.FC = () => {
         <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black text-slate-600 uppercase tracking-widest">
           <div>© 2024 Swap Station Technologies. Nigeria.</div>
           <div className="flex gap-10">
-            {["Privacy", "Legal", "Contact"].map((link) => (
-              <a key={link} href="#" className="hover:text-white transition-colors">{link}</a>
-            ))}
+            <button onClick={() => onNavigate && onNavigate('privacy')} className="hover:text-white transition-colors">Privacy</button>
+            <button onClick={() => onNavigate && onNavigate('terms')} className="hover:text-white transition-colors">Legal</button>
+            <button onClick={() => onNavigate && onNavigate('contact')} className="hover:text-white transition-colors">Contact</button>
           </div>
         </div>
       </div>

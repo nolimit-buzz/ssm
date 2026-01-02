@@ -1,197 +1,116 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView, useSpring } from 'framer-motion';
-import { 
-  Zap, 
-  Gauge, 
-  Navigation, 
-  Battery, 
-  ShieldCheck, 
-  Cpu, 
-  Wifi, 
-  LayoutGrid, 
-  Activity,
-  ArrowRight
-} from 'lucide-react';
 
-const AnimatedSmallStat = ({ value, label, prefix = "", suffix = "" }: { value: number; label: string; prefix?: string; suffix?: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const springValue = useSpring(0, { stiffness: 50, damping: 25 });
-  const [displayValue, setDisplayValue] = useState(0);
+import React from 'react';
+import { motion } from 'framer-motion';
+import { MapPin } from 'lucide-react';
 
-  useEffect(() => {
-    if (isInView) springValue.set(value);
-  }, [isInView, springValue, value]);
+interface MetricsSectionProps {
+  onNavigate?: (page: 'locator' | 'contact' | 'products' | 'services') => void;
+}
 
-  useEffect(() => {
-    return springValue.on("change", (latest) => setDisplayValue(Math.floor(latest)));
-  }, [springValue]);
+const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
+  // Using the high-fidelity fleet image asset consistent with the rest of the site's product renders
+  const bikeImageUrl = "https://images.unsplash.com/photo-1558444479-c848261286a2?auto=format&fit=crop&q=80&w=1200";
 
-  return (
-    <div ref={ref} className="flex flex-col items-center md:items-start px-8 border-r border-slate-200 last:border-0">
-      <div className="text-2xl font-black text-slate-950 tabular-nums">
-        {prefix}{displayValue.toLocaleString()}{suffix}
-      </div>
-      <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mt-1 whitespace-nowrap">
-        {label}
-      </div>
-    </div>
-  );
-};
-
-const AssetCard: React.FC<{ 
-  image: string; 
-  title: string; 
-  bgColor: string;
-  accentColor: string;
-  specs: { icon: any; label: string; value: string }[];
-  delay: number;
-}> = ({ 
-  image, 
-  title, 
-  bgColor,
-  accentColor,
-  specs, 
-  delay 
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay }}
-    className={`group ${bgColor} rounded-2xl overflow-hidden border border-transparent hover:border-emerald-500/20 transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] flex flex-col h-full`}
-  >
-    <div className="relative aspect-[4/3] flex items-center justify-center p-8 overflow-hidden">
-      {/* Background Decorative Element */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full ${accentColor} blur-3xl opacity-30 group-hover:scale-150 transition-transform duration-1000`} />
-      
-      <motion.img 
-        src={image} 
-        alt={title} 
-        whileHover={{ scale: 1.05, rotate: -2 }}
-        className="w-full h-full object-cover rounded-2xl rounded-b-none relative z-10 transition-transform duration-700 filter drop-shadow-2xl"
-      />
-    </div>
-    <div className="p-10 bg-white/40 backdrop-blur-sm border-t border-white/20 flex-grow">
-      <h3 className="text-2xl font-black text-slate-950 mb-8 tracking-tight uppercase group-hover:text-emerald-700 transition-colors">
-        {title}
-      </h3>
-      <div className="space-y-5">
-        {specs.map((spec, i) => (
-          <div key={i} className="flex items-center justify-between py-3 border-b border-slate-950/5 last:border-0 group/line">
-            <div className="flex items-center gap-3">
-              <div className="text-slate-400 group-hover/line:text-emerald-600 transition-colors">
-                <spec.icon className="w-4 h-4" />
-              </div>
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">{spec.label}</span>
-            </div>
-            <span className="text-sm font-black text-slate-900">{spec.value}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </motion.div>
-);
-
-const MetricsSection: React.FC = () => {
-  const assets = [
-    {
-      title: "TANKVOLT",
-      // Professional isolated EV Bike render style
-      image: "/e-okada.jpeg",
-      bgColor: "bg-emerald-50",
-      accentColor: "bg-emerald-400",
-      specs: [
-        { icon: Gauge, label: "Top Speed", value: "80 km/h" },
-        { icon: Navigation, label: "Range", value: "120 km" },
-        { icon: Zap, label: "Motor", value: "3kW" },
-        { icon: Battery, label: "Battery", value: "4.3 kWh" }
-      ]
-    },
-    {
-      title: "Smart Batteries",
-      // Professional isolated Battery Pack render style
-      image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&q=80&w=800",
-      bgColor: "bg-blue-50",
-      accentColor: "bg-blue-400",
-      specs: [
-        { icon: Battery, label: "Lithium Pack", value: "4.3kWh" },
-        { icon: ShieldCheck, label: "Safety", value: "63-pt BMS" },
-        { icon: Wifi, label: "IoT System", value: "Built-in 4G" },
-        { icon: Activity, label: "Grade", value: "Automotive" }
-      ]
-    },
-    {
-      title: "SwapStation Booth",
-      // Professional isolated Swap Hub render style
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
-      bgColor: "bg-slate-100",
-      accentColor: "bg-emerald-300",
-      specs: [
-        { icon: Cpu, label: "Control", value: "IoT-connected" },
-        { icon: LayoutGrid, label: "Capacity", value: "12 Slots" },
-        { icon: Zap, label: "Charging", value: "Simultaneous" },
-        { icon: Activity, label: "Protocol", value: "Smart Sync" }
-      ]
-    }
+  const stats = [
+    { value: "50+", label: "Cities" },
+    { value: "ONE", label: "Platform" },
+    { value: "120K+", label: "Clean KM" },
+    { value: "300+", label: "Daily Swaps" }
   ];
 
   return (
-    <section id="metrics" className="py-32 px-6 md:px-12 bg-white relative overflow-hidden">
-      {/* Structural Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none select-none" 
-           style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '60px 60px' }} />
+    <section className="relative py-32 bg-white overflow-hidden flex flex-col items-center border-t border-slate-50">
+      <div className="max-w-7xl mx-auto px-6 text-center w-full flex flex-col items-center">
+        
+        {/* Headline Tag */}
+        <motion.span 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-emerald-600 font-black uppercase tracking-[0.5em] text-[10px] mb-6 block"
+        >
+          Propulsion & Tech Advantage
+        </motion.span>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-24">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-emerald-600 font-black uppercase tracking-[0.5em] text-[10px] mb-6 block"
-          >
-            Propulsion & Tech Advantage
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-8"
-          >
-            Your Fleet — Powered by <br className="hidden md:block" /> Smart, Swappable Tech.
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-slate-500 max-w-3xl mx-auto text-md font-medium leading-relaxed"
-          >
-            SwapStation Mobility combines advanced 2W/3W EVs, intelligent lithium battery packs, and IoT-enabled SwapStations to deliver scalable logistics electrification—built for uptime, safety, and speed.
-          </motion.p>
-        </div>
-
-        {/* 3-Column Asset Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {assets.map((asset, i) => (
-            <AssetCard key={i} {...asset} delay={i * 0.1} />
-          ))}
-        </div>
-
-        {/* Mini Stats Bar - Positioned Beneath the Assets */}
-        <motion.div 
+        {/* Main Headline */}
+        <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto bg-slate-50 rounded-2xl py-10 px-6 border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 max-w-4xl"
         >
-          <AnimatedSmallStat value={85000} label="Saved / 100 Swaps" prefix="₦" suffix="+" />
-          <AnimatedSmallStat value={120000} label="Clean KM Logged" suffix="+" />
-          <AnimatedSmallStat value={200} label="Daily Swaps / Station" suffix="+" />
-          <AnimatedSmallStat value={75} label="Station Uptime" suffix="%+" />
-          
-          <div className="md:px-10">
-            <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-600 hover:gap-4 transition-all">
-              Full ROI Audit <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+          Your Fleet — Powered by <br /> Smart, Swappable Tech.
+        </motion.h2>
+
+        {/* Description Text */}
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-slate-500 max-w-3xl mx-auto text-lg font-medium leading-relaxed mb-20"
+        >
+          SwapStation Mobility combines advanced 2W/3W EVs, intelligent lithium battery packs, and IoT-enabled SwapStations to deliver scalable logistics electrification—built for uptime, safety, and speed.
+        </motion.p>
+
+        {/* Optimized Stats Grid - Following the 4rem style */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-20 w-full max-w-5xl">
+          {stats.map((stat, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + (i * 0.1), duration: 0.6 }}
+              className="flex flex-col items-center"
+            >
+              <div className="text-4xl md:text-[4rem] font-black text-slate-900 tracking-tighter mb-2 leading-none">
+                {stat.value}
+              </div>
+              <div className="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em]">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Fleet Hero Visual */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full max-w-6xl h-[240px] md:h-[480px] flex items-center justify-center mb-16"
+        >
+          <img 
+            src="/fleet.jpeg" 
+            alt="TankVolt Electric Fleet" 
+            className="w-full h-full object-contain mix-blend-multiply filter contrast-[1.08] brightness-[1.02]"
+          />
+          {/* Soft grounding shadow */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] h-6 bg-black/5 blur-3xl rounded-full pointer-events-none" />
         </motion.div>
+
+        {/* Optimized Call to Action Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+        >
+          <button 
+            onClick={() => onNavigate && onNavigate('locator')}
+            className="group flex items-center justify-center gap-8 bg-emerald-600 hover:bg-[#020617] text-white px-12 py-6 rounded-full text-xs font-black uppercase tracking-[0.2em] transition-all duration-500 hover:-translate-y-1 active:scale-[0.98] shadow-[0_20px_40px_rgba(16,185,129,0.25)] hover:shadow-[0_20px_40px_rgba(2,6,23,0.3)]"
+          >
+            <div className="flex flex-col items-start leading-none text-left">
+              <span className="text-[9px] text-emerald-100 group-hover:text-slate-400 mb-1 transition-colors">Network Map</span>
+              <span className="text-sm">Find a station</span>
+            </div>
+            <MapPin className="w-6 h-6 group-hover:scale-110 transition-transform text-white" />
+          </button>
+        </motion.div>
+
       </div>
     </section>
   );
