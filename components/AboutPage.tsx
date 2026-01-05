@@ -416,17 +416,70 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       {/* Partners Section */}
       <Partners />
 
-      {/* Final CTA Section (Synced with Services Page) */}
-      <section className="py-32 px-6 bg-[#051F19]">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl border border-white/10 px-6 py-2 rounded-full text-emerald-400 text-[10px] font-black tracking-[0.4em] uppercase mb-12">
+      <section className="py-32 px-6 md:px-12 bg-emerald-600 relative overflow-hidden">
+        {/* 1. Deep Layer: Large Infrastructure Underlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-10 mix-blend-luminosity z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2000&auto=format&fit=crop" 
+            alt="" 
+            className="w-full h-full object-cover grayscale brightness-50 object-bottom"
+          />
+          {/* Soft overlay to blend infrastructure image into top background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-emerald-600 via-emerald-600/20 to-transparent" />
+        </div>
+
+        {/* 2. Middle Layer: Technical Grid with Soft Top Fade */}
+        <div 
+          className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none z-0" 
+          style={{ 
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)
+            `, 
+            backgroundSize: '60px 60px',
+            maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 20%, black 80%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 20%, black 80%)'
+          }} 
+        />
+        
+        {/* 3. Surface Layer: Micro-Grain Texture with Global Visibility */}
+        <div 
+          className="absolute inset-0 opacity-[0.04] mix-blend-multiply pointer-events-none z-0"
+          style={{ 
+            backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', 
+            backgroundSize: '4px 4px'
+          }}
+        />
+
+        {/* 4. Ambient Energy Glows - Global Atmosphere */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <motion.div 
+            animate={{
+              opacity: [0.05, 0.1, 0.05],
+              scale: [1, 1.05, 1],
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[-10%] right-[-10%] w-[1000px] h-[1000px] bg-emerald-400 blur-[200px] rounded-full" 
+          />
+          <motion.div 
+            animate={{
+              opacity: [0.03, 0.08, 0.03],
+              scale: [1.1, 1, 1.1],
+            }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[-15%] left-[-5%] w-[800px] h-[800px] bg-teal-300 blur-[180px] rounded-full" 
+          />
+        </div>
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-2xl border border-white/20 px-6 py-2 rounded-full text-emerald-50 text-[10px] font-black tracking-[0.4em] uppercase mb-12">
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-2xl font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
+          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
             Contact for Strategic Info
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>
