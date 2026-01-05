@@ -318,7 +318,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             Updates, insights, and announcements from the frontlines of Africa's energy transition.
           </motion.p>

@@ -104,7 +104,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
   const ecosystem = [
     {
       title: "TANKVOLT T22",
-      image: "https://images.unsplash.com/photo-1558444479-c848261286a2?auto=format&fit=crop&q=80&w=800",
+      image: "/e-okada.jpeg",
       bgColor: "bg-emerald-50",
       accentColor: "bg-emerald-400",
       targetId: "tankvolt",
@@ -173,7 +173,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-8xl font-black text-white tracking-tighter leading-[1.1] mb-12"
+            className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-12"
           >
             The Future of <br /> <span className="text-gradient">Urban Mobility.</span>
           </motion.h1>
@@ -181,7 +181,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             Integrated hardware and software solutions powering the clean energy transition for commercial logistics.
           </motion.p>
@@ -271,7 +271,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
               <img 
-                src="https://images.unsplash.com/photo-1558444479-c848261286a2?auto=format&fit=crop&q=80&w=1200" 
+                src="/e-okada-transparent.png" 
                 alt="TankVolt Main" 
                 className="w-full h-auto relative z-10 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform -scale-x-100"
               />
@@ -510,10 +510,10 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-[1rem] font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
+          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-[1rem] font-black text-md transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
             Contact for Strategic Info
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>

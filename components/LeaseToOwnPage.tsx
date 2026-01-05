@@ -166,7 +166,7 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             From expensive fuel to clean energy with zero upfront stress. Flexible ownership plans designed for logistics businesses.
           </motion.p>

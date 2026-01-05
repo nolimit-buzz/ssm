@@ -25,11 +25,20 @@ const Hero: React.FC = () => {
           transition={{ duration: 3, ease: "easeOut" }}
           className="w-full h-full"
         >
-          <img 
+          <video
+            src="https://cdn.gogoro.com/resources/pages/global-home/hero/video-global-hero.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            cover={HERO_CONTENT.backgroundImage}
+            className="w-full h-full object-cover grayscale-[0.1]"
+          />
+          {/* <img 
             src={HERO_CONTENT.backgroundImage}
             alt="Energy Infrastructure" 
             className="w-full h-full object-cover grayscale-[0.1]"
-          />
+          /> */}
         </motion.div>
         
         {/* Institutional Overlays: Lightened for better visibility */}

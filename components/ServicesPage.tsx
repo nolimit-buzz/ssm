@@ -232,10 +232,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
+          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-md transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
             Contact for Strategic Info
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>

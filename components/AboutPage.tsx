@@ -269,7 +269,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             Swap Station Mobility (SSM) Limited is piloting the operational backbone for Sub-Saharan Africa's logistics EV platform.
           </motion.p>
@@ -476,10 +476,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
+          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-md transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
             Contact for Strategic Info
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>

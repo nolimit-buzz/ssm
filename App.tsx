@@ -120,9 +120,9 @@ const App: React.FC = () => {
         {currentPage === 'home' ? (
           <>
             <Hero />
-            <PainSolution />
             <WhatBuilding />
             <HowItWorks />
+            <PainSolution />
             <Services />
             <MetricsSection onNavigate={handleNavigate} />
             <NewsSection onReadArticle={handleReadArticle} onNavigate={handleNavigate} onNavigateToCategory={handleNavigateToCategory} />

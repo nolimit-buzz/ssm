@@ -135,7 +135,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-xl font-medium leading-relaxed"
+            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
             Partner with Africa’s most resilient e-mobility network. Reach out for strategic deployment, investment inquiries, or pilot programs.
           </motion.p>
