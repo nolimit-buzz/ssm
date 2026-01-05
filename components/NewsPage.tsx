@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Calendar, Plus, ChevronRight, ChevronLeft, Filter, ChevronDown, Check, X } from 'lucide-react';
 
@@ -9,7 +9,109 @@ interface NewsPageProps {
   onNavigateToCategory?: (category: string) => void;
 }
 
-// Generate Mock Data
+// API Response Types
+interface ApiTerm {
+  term_id: number;
+  name: string;
+  slug: string;
+  term_group: number;
+  term_taxonomy_id: number;
+  taxonomy: string;
+  description: string;
+  parent: number;
+  count: number;
+  filter: string;
+}
+
+interface ApiNewsItem {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  featured_image: string;
+  terms: ApiTerm[];
+  custom_fields: Record<string, string[]>;
+}
+
+interface ApiResponse {
+  data: ApiNewsItem[];
+  total_posts: number;
+  total_pages: number;
+  current_page: number;
+}
+
+// News Item Type (internal format)
+interface NewsItem {
+  id: number;
+  category: string;
+  date: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  color: string;
+  bgColor: string;
+  borderColor: string;
+  slug?: string;
+}
+
+// Category color mapping
+const getCategoryColors = (categoryName: string): { color: string; bgColor: string; borderColor: string } => {
+  const categoryMap: Record<string, { color: string; bgColor: string; borderColor: string }> = {
+    'Transactions': { color: 'text-emerald-600', bgColor: 'bg-emerald-50', borderColor: 'border-emerald-100' },
+    'Milestones': { color: 'text-amber-600', bgColor: 'bg-amber-50', borderColor: 'border-amber-100' },
+    'Press Release': { color: 'text-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-100' },
+    'Partnership': { color: 'text-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-100' },
+    'Sustainability': { color: 'text-teal-600', bgColor: 'bg-teal-50', borderColor: 'border-teal-100' },
+    'Product': { color: 'text-purple-600', bgColor: 'bg-purple-50', borderColor: 'border-purple-100' },
+    'Expansion': { color: 'text-orange-600', bgColor: 'bg-orange-50', borderColor: 'border-orange-100' },
+    'Technology': { color: 'text-cyan-600', bgColor: 'bg-cyan-50', borderColor: 'border-cyan-100' },
+    'Community': { color: 'text-indigo-600', bgColor: 'bg-indigo-50', borderColor: 'border-indigo-100' },
+    'Roadshow': { color: 'text-purple-600', bgColor: 'bg-purple-50', borderColor: 'border-purple-100' },
+    'Executive motoring': { color: 'text-emerald-600', bgColor: 'bg-emerald-50', borderColor: 'border-emerald-100' },
+    'Glovo': { color: 'text-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-100' },
+  };
+  
+  return categoryMap[categoryName] || { color: 'text-slate-600', bgColor: 'bg-slate-50', borderColor: 'border-slate-100' };
+};
+
+// Transform API data to NewsItem format
+const transformApiData = (apiItem: ApiNewsItem): NewsItem => {
+  // Get the first category from terms (or use 'News' as default)
+  const category = apiItem.terms && apiItem.terms.length > 0 
+    ? apiItem.terms[0].name 
+    : 'News';
+  
+  const colors = getCategoryColors(category);
+  
+  // Format date - since API doesn't provide date, we'll use a placeholder
+  // You can modify this if the API starts providing dates
+  const date = new Date().toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  
+  // Clean excerpt - remove HTML entities
+  const cleanExcerpt = apiItem.excerpt
+    .replace(/\[&hellip;\]/g, '...')
+    .replace(/&[a-z]+;/gi, '')
+    .trim();
+  
+  return {
+    id: apiItem.id,
+    category,
+    date,
+    title: apiItem.title,
+    excerpt: cleanExcerpt,
+    image: apiItem.featured_image || '',
+    color: colors.color,
+    bgColor: colors.bgColor,
+    borderColor: colors.borderColor,
+    slug: apiItem.slug,
+  };
+};
+
+// Generate Mock Data (kept as fallback)
 export const GENERATED_NEWS = [
   {
     id: 1,
@@ -156,19 +258,7 @@ export const GENERATED_NEWS = [
   }
 ];
 
-// Define featured stories (Top 4)
-const FEATURED_STORIES = GENERATED_NEWS.slice(0, 4);
-
-// The rest of the news for the grid (excluding first 4)
-// We duplicate the grid items to demonstrate the pagination/"Load More" functionality effectively
-const BASE_ITEMS = GENERATED_NEWS.slice(4);
-const NEWS_GRID_ITEMS = [
-  ...BASE_ITEMS,
-  ...BASE_ITEMS.map(item => ({ ...item, id: item.id + 100 })),
-  ...BASE_ITEMS.map(item => ({ ...item, id: item.id + 200 }))
-];
-
-export const NewsCard: React.FC<{ item: typeof GENERATED_NEWS[0], index: number, onClick: () => void, onCategoryClick?: (category: string) => void }> = ({ item, index, onClick, onCategoryClick }) => (
+export const NewsCard: React.FC<{ item: NewsItem, index: number, onClick: () => void, onCategoryClick?: (category: string) => void }> = ({ item, index, onClick, onCategoryClick }) => (
   <motion.article
     layout
     onClick={onClick}
@@ -226,15 +316,63 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
   // Replaced single category string with array of strings for multi-select
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-  const categories = useMemo(() => {
-    return Array.from(new Set(NEWS_GRID_ITEMS.map(item => item.category))).sort();
+  
+  // API data state
+  const [newsData, setNewsData] = useState<NewsItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  // Fetch news from API
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        const response = await fetch(
+          'https://nolimit.buzz/headless/swapstation/wp-json/headless/v1/db?datatype=post&taxonomy=category'
+        );
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch news: ${response.statusText}`);
+        }
+        
+        const apiData: ApiResponse = await response.json();
+        
+        // Transform API data to NewsItem format
+        const transformedData = apiData.data.map(transformApiData);
+        
+        setNewsData(transformedData);
+      } catch (err) {
+        console.error('Error fetching news:', err);
+        setError(err instanceof Error ? err.message : 'Failed to fetch news');
+        // Fallback to mock data on error
+        setNewsData(GENERATED_NEWS);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchNews();
   }, []);
 
+  // Use fetched news data or fallback to mock data
+  const allNewsItems = newsData.length > 0 ? newsData : GENERATED_NEWS;
+  
+  // Define featured stories (Top 4)
+  const featuredStories = allNewsItems.slice(0, 4);
+  
+  // The rest of the news for the grid (excluding first 4)
+  const newsGridItems = allNewsItems.slice(4);
+
+  const categories = useMemo(() => {
+    return Array.from(new Set(newsGridItems.map(item => item.category))).sort();
+  }, [newsGridItems]);
+
   const filteredItems = useMemo(() => {
-    if (selectedCategories.length === 0) return NEWS_GRID_ITEMS;
-    return NEWS_GRID_ITEMS.filter(item => selectedCategories.includes(item.category));
-  }, [selectedCategories]);
+    if (selectedCategories.length === 0) return newsGridItems;
+    return newsGridItems.filter(item => selectedCategories.includes(item.category));
+  }, [selectedCategories, newsGridItems]);
 
   const toggleCategory = (cat: string) => {
     setSelectedCategories(prev => 
@@ -251,14 +389,14 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
   };
 
   const nextFeatured = () => {
-    setFeaturedIndex((prev) => (prev + 1) % FEATURED_STORIES.length);
+    setFeaturedIndex((prev) => (prev + 1) % featuredStories.length);
   };
 
   const prevFeatured = () => {
-    setFeaturedIndex((prev) => (prev === 0 ? FEATURED_STORIES.length - 1 : prev - 1));
+    setFeaturedIndex((prev) => (prev === 0 ? featuredStories.length - 1 : prev - 1));
   };
 
-  const featuredStory = FEATURED_STORIES[featuredIndex];
+  const featuredStory = featuredStories[featuredIndex];
 
   return (
     <div className="bg-white min-h-screen">
@@ -326,15 +464,39 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
       </section>
 
       {/* --- FEATURED ARTICLE SLIDER --- */}
-      <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row min-h-[500px] group cursor-pointer"
-            onClick={() => onReadArticle(featuredStory)}
-          >
+      {isLoading ? (
+        <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row min-h-[500px] items-center justify-center">
+              <div className="text-center">
+                <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-slate-500 font-bold">Loading news...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : error && newsData.length === 0 ? (
+        <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-red-100 flex flex-col md:flex-row min-h-[500px] items-center justify-center">
+              <div className="text-center p-8">
+                <p className="text-red-600 font-bold mb-2">Error loading news</p>
+                <p className="text-slate-500 text-sm">{error}</p>
+                <p className="text-slate-400 text-xs mt-4">Using fallback data</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : featuredStories.length > 0 ? (
+        <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
+          <div className="max-w-7xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row min-h-[500px] group cursor-pointer"
+              onClick={() => onReadArticle(featuredStory)}
+            >
             {/* Image Side */}
             <div className="md:w-1/2 relative overflow-hidden bg-slate-900">
                <AnimatePresence mode="wait">
@@ -417,7 +579,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
                        </button>
                     </div>
                     <div className="flex gap-1.5">
-                       {FEATURED_STORIES.map((_, i) => (
+                       {featuredStories.map((_, i) => (
                          <button
                            key={i}
                            onClick={() => setFeaturedIndex(i)}
@@ -431,6 +593,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
           </motion.div>
         </div>
       </section>
+      ) : null}
 
       {/* --- NEWS GRID --- */}
       <section className="px-6 md:px-12 pb-32 bg-slate-50 border-t border-slate-200 pt-32">
