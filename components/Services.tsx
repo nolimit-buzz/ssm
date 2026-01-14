@@ -99,9 +99,9 @@ const Services: React.FC = () => {
       bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop",
       isReversed: true,
       items: [
-        { icon: Zap, label: "Swap Stations", sub: "Modular solar + grid integrated units." },
-        { icon: MapPin, label: "Location Optimization", sub: "Data-driven hub placement strategy." },
-        { icon: Activity, label: "Uptime APIs", sub: "99.9% guaranteed network reliability." }
+        { icon: Zap, label: "Swap Stations", sub: "Modular, solar- and grid-integrated swap units." },
+        { icon: MapPin, label: "Location Optimization", sub: "Data-driven hub placement and network planning." },
+        { icon: Activity, label: "Uptime APIs", sub: "Enterprise-grade monitoring with high-availability network performance." }
       ]
     },
     {
@@ -109,9 +109,9 @@ const Services: React.FC = () => {
       icon: Bike,
       bgImage: "https://images.unsplash.com/photo-1611241893603-3c359704e0ee?q=80&w=2000&auto=format&fit=crop",
       items: [
-        { icon: LinkIcon, label: "EV Lease-to-Own", sub: "Flexible ownership paths for commercial riders." },
-        { icon: Activity, label: "Battery-as-a-Service", sub: "Infinite range via physical energy exchange." },
-        { icon: Wrench, label: "Maintenance/Retrofits", sub: "Full-lifecycle technical fleet support." }
+        { icon: LinkIcon, label: "EV Lease-to-Own", sub: "Flexible ownership pathways for commercial riders." },
+        { icon: Activity, label: "Battery-as-a-Service", sub: "Unlimited range through physical energy exchange." },
+        { icon: Wrench, label: "Maintenance & Retrofits", sub: "Full-lifecycle technical fleet support." }
       ]
     },
     {
@@ -119,9 +119,9 @@ const Services: React.FC = () => {
       icon: LayoutDashboard,
       bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
       items: [
-        { icon: Users, label: "Rider Onboarding", sub: "Recruitment, safety, and efficiency training." },
-        { icon: LayoutDashboard, label: "IoT Dashboards", sub: "Real-time telemetry for fleet managers." },
-        { icon: LinkIcon, label: "Fleet Integration", sub: "Native API hooks for logistics aggregators." }
+        { icon: Users, label: "Rider Onboarding", sub: "Recruitment, safety training, and operational readiness." },
+        { icon: LayoutDashboard, label: "IoT Dashboards", sub: "Real-time telemetry and fleet performance insights." },
+        { icon: LinkIcon, label: "Fleet Integration", sub: "Native API connectivity for logistics and delivery platforms." }
       ]
     }
   ];

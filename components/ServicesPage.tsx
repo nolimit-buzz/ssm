@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import PageHeader from './PageHeader';
 import { 
   Building2, 
   Zap, 
@@ -106,47 +107,20 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
 
   return (
     <div className="bg-[#020617]">
-      {/* Hero Section - Standardized Height */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[150px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-emerald-600/5 blur-[120px] rounded-full" />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-[10px]"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-[10px]">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-[10px]">
-              SERVICES
-            </span>
-          </motion.nav>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1] mb-12"
-          >
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "SERVICES" }
+        ]}
+        heading={
+          <>
             Defining the Future <br /> of <span className="text-gradient">Africa's Mobility.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-3xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            SwapStation Mobility is the clean-energy infrastructure backbone powering logistics ecosystems through a vertically integrated service stack.
-          </motion.p>
-        </div>
-      </section>
+          </>
+        }
+        description="SwapStation Mobility is the clean-energy infrastructure backbone powering logistics ecosystems through a vertically integrated service stack."
+        backgroundColor="#020617"
+        className="border-b border-white/5"
+      />
 
       {/* Main Services Grid (Light Theme) */}
       <section className="py-32 px-6 md:px-12 relative bg-white overflow-hidden">

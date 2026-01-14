@@ -7,25 +7,25 @@ const WhatBuilding: React.FC = () => {
     {
       icon: Battery,
       title: "Fleet Infrastructure",
-      desc: "High-performance swap stations, maximum uptime, and smart grid integration.",
+      desc: "High-performance swap stations engineered for maximum uptime and grid integration.",
       tag: "Infrastructure"
     },
     {
       icon: Sun,
       title: "Solar + IoT Layer",
-      desc: "Resilient power sourcing coupled with real-time telemetry and tracking.",
+      desc: "Resilient power sourcing combined with real-time telemetry and performance monitoring.",
       tag: "Technology"
     },
     {
       icon: Zap,
       title: "Vehicle Access",
-      desc: "Precision EVs, professional retrofits, and long-life battery ecosystems.",
+      desc: "Purpose-built EVs, professional retrofits, and long-life battery ecosystems.",
       tag: "Mobility"
     },
     {
       icon: Globe,
       title: "Partnerships",
-      desc: "Strategic alliances with aggregators, DFIs, and minigrid developers.",
+      desc: "Strategic alliances with aggregators, fleet operators, multi-site owners and energy infrastructure partners.",
       tag: "Ecosystem"
     }
   ];
@@ -66,7 +66,7 @@ const WhatBuilding: React.FC = () => {
               We’re Building the Energy Layer for Africa’s Electric Logistics.
             </h2>
             <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-2xl">
-              Swap Station Mobility is the clean-energy infrastructure backbone powering logistics ecosystems across Sub-Saharan Africa — from riders to stations to solar.
+              SwapStation Mobility is the clean-energy infrastructure backbone powering electric logistics across Sub-Saharan Africa — from riders and fleets to swap stations and distributed solar.
             </p>
           </motion.div>
           

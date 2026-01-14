@@ -33,7 +33,7 @@ const PainSolution: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-slate-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
           >
-            Traditional combustion fleets are holding your business back with volatile costs and high maintenance. Swap Station is the modern alternative.
+            Traditional combustion fleets hold businesses back with volatile fuel costs, high maintenance, and operational downtime. SwapStation Mobility is the modern electric alternative.
           </motion.p>
         </div>
 
@@ -56,9 +56,9 @@ const PainSolution: React.FC = () => {
               </div>
               <ul className="space-y-8">
                 {[
-                  { icon: DollarSign, title: "Unpredictable Fuel Costs", desc: "Rising diesel prices eat into thin logistics margins daily." },
-                  { icon: Clock, title: "Static Charging Stops", desc: "Traditional EV charging grounds your fleet for hours." },
-                  { icon: AlertTriangle, title: "High Maintenance", desc: "Internal combustion engines require frequent, expensive repairs." }
+                  { icon: DollarSign, title: "Unpredictable Fuel Costs", desc: "Rising fuel prices continue to erode logistics margins." },
+                  { icon: Clock, title: "Static Charging Stops", desc: "Conventional EV charging grounds fleets for hours." },
+                  { icon: AlertTriangle, title: "High Maintenance", desc: "Internal combustion engines require frequent, costly repairs." }
                 ].map((item, i) => (
                   <li key={i} className="flex gap-6">
                     <div className="shrink-0 w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center border border-red-100/50">
@@ -87,13 +87,13 @@ const PainSolution: React.FC = () => {
             <div className="relative z-10">
               <div className="flex items-center gap-3 text-emerald-100 mb-10 font-black uppercase tracking-widest text-[10px]">
                 <CheckCircle2 className="w-4 h-4" />
-                The Swap Station Model
+                The SwapStation Model
               </div>
               <ul className="space-y-8 text-white">
                 {[
-                  { icon: TrendingDown, title: "40% Operational Savings", desc: "Slash your energy costs and improve per-mile profitability." },
-                  { icon: Clock, title: "Swap in < 90 Seconds", desc: "Back on the road in the time it takes to refuel a bike." },
-                  { icon: ShieldCheck, title: "Zero Fleet Downtime", desc: "Never wait for a charge. Our network is always ready." }
+                  { icon: TrendingDown, title: "Up to 40% Operational Savings", desc: "Lower energy costs and improved per-mile economics." },
+                  { icon: Clock, title: "Swap in Under 90 Seconds", desc: "Back on the road in the time it takes to refuel a bike." },
+                  { icon: ShieldCheck, title: "Zero Fleet Downtime", desc: "A network designed for continuous availability." }
                 ].map((item, i) => (
                   <li key={i} className="flex gap-6">
                     <div className="shrink-0 w-14 h-14 rounded-2xl bg-emerald-500 border border-white/10 flex items-center justify-center shadow-lg">

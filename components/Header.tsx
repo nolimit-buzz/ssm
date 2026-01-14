@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
       page: "services",
       children: [
         { name: "PRODUCTS", page: "products" },
-        { name: "LEASE-TO-OWN", page: "lease-to-own" }
+        { name: "ASSET FINANCING", page: "lease-to-own" }
       ]
     },
     { name: "NEWS", page: "news" },
@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
             >
               <button 
                 onClick={() => handleLinkClick(item.page)}
-                className={`hover:text-emerald-500 transition-colors flex items-center gap-1 py-4 ${
+                className={`hover:text-emerald-500 transition-colors flex items-center gap-1 py-4 text-xs ${
                   isActive(item) ? 'text-emerald-500' : ''
                 }`}
               >

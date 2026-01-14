@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import PageHeader from './PageHeader';
 import { 
   CheckCircle2, 
   FileCheck, 
@@ -47,7 +48,7 @@ const DOWN_PAYMENT = "₦372,391"; // 15%
 const FAQS = [
   {
     question: "What is Battery-as-a-Service (BaaS)?",
-    answer: "BaaS means you don't buy the battery; you only pay for the energy you use. Instead of waiting hours to charge, you swap a depleted battery for a fully charged one in under 3 minutes at any of our hubs. The swap fee is ₦4,200."
+    answer: "BaaS means you don't buy the battery; you only pay for the energy you use. Instead of waiting hours to charge, you swap a depleted battery for a fully charged one in under 3 minutes at any of our hubs. The swap fee is ₦3,500."
   },
   {
     question: "What happens if I miss a payment?",
@@ -60,6 +61,10 @@ const FAQS = [
   {
     question: "Can I pay off the lease early?",
     answer: "Absolutely. You can pay off the remaining balance of the asset value at any time without penalty, instantly transferring full ownership to you."
+  },
+  {
+    question: "Do I own the battery after completing the Lease-to-Own term?",
+    answer: "The vehicle becomes yours at the end of the Lease-to-Own term. Batteries are provided by SwapStation under our Battery-as-a-Service (BaaS) model and typically remain SwapStation property, except in specific cases where battery ownership is offered separately."
   }
 ];
 
@@ -121,57 +126,23 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
   return (
     <div className="bg-[#0B0E14] min-h-screen">
       
-      {/* --- HERO SECTION (Dark) --- */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden bg-[#020617]">
-        {/* Atmosphere */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-600/5 blur-[100px] rounded-full" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-xs"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-xs">—</span>
-            <button 
-              onClick={() => onNavigate('products')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-xs"
-            >
-              PRODUCTS
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-xs">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-xs">
-              LEASE-TO-OWN
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "PRODUCTS", page: "products", onClick: () => onNavigate('products') },
+          { label: "ASSET FINANCING" }
+        ]}
+        heading={
+          <>
+            Own your journey.
+            <br />
+            <span className="text-emerald-400 text-2xl md:text-3xl font-black tracking-tight">
+              SwapStation Lease-to-Own, powered by the TankVolt T22.
             </span>
-          </motion.nav>
-
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-12"
-          >
-            Own your journey: <br /> <span className="text-gradient">Tank Volt Lease-to-Own.</span>
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            From expensive fuel to clean energy with zero upfront stress. Flexible ownership plans designed for logistics businesses.
-          </motion.p>
-        </div>
-      </section>
+          </>
+        }
+        description="SwapStation finances and manages the asset, while you earn and repay over time—leading to full ownership."
+      />
 
       {/* --- THE SIMPLE PATH (White) --- */}
       <section className="py-32 px-6 md:px-12 bg-white relative">
@@ -192,14 +163,14 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
             <StepCard 
               number="02"
               title="Verified Approval"
-              desc="Submit your driver's license and guarantor details. Pay the 15% down payment once approved."
+              desc="Submit your driver's license and guarantor details. Once approved, pay a one-time 15% down payment to SwapStation to activate your lease."
               icon={FileCheck}
               delay={0.2}
             />
             <StepCard 
               number="03"
               title="Ride & Own"
-              desc="Pick up your Tank Volt. Pay daily or weekly from your earnings. Complete the term, and the bike is yours."
+              desc="Pick up your Tank Volt. Pay daily or weekly from your earnings. Complete the term, and the bike is yours. Batteries are provided by SwapStation under our Battery-as-a-Service (BaaS) model."
               icon={Bike}
               delay={0.3}
             />
@@ -277,7 +248,7 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
 
            <div className="mt-8 text-center">
               <p className="text-slate-500 text-xs font-medium max-w-2xl mx-auto">
-                * Prices subject to credit approval. Battery-as-a-Service (BaaS) swapping fees are separate at ₦4,200 per swap. 
+                * Prices subject to credit approval. Battery-as-a-Service (BaaS) swapping fees are separate at ₦3,500 per swap. 
                 Down payment is calculated on the asset base price.
               </p>
            </div>
@@ -296,9 +267,9 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
           >
             <div className="absolute inset-0 bg-emerald-500/20 blur-[100px] rounded-full" />
             <img 
-              src="https://images.unsplash.com/photo-1558444479-c848261286a2?auto=format&fit=crop&q=80&w=1200" 
+              src="/e-okada-transparent.png" 
               alt="Tank Volt T22" 
-              className="relative z-10 w-full transform -scale-x-100" // Flip image to face right content
+              className="relative z-10 w-full transform " // Flip image to face right content
             />
             {/* Spec Callouts Overlay */}
             <div className="absolute top-10 left-10 bg-black/60 backdrop-blur border border-white/10 p-4 rounded-xl z-20">
@@ -322,7 +293,9 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
             <p className="text-slate-400 text-lg mb-12 leading-relaxed">
               The Tank Volt T22 isn't just a bike; it's a revenue-generating asset. Rugged suspension, dual-battery capacity, and smart tracking ensure you stay on the road earning money.
             </p>
-
+            <p className="text-slate-400 text-lg mb-12 leading-relaxed">
+            The TankVolt T22 is supplied through our OEM partners and financed exclusively through SwapStation’s asset-backed lease program.
+            </p>
             <div className="grid grid-cols-2 gap-6">
               {[
                 { icon: Gauge, label: "Top Speed", val: "80 km/h" },

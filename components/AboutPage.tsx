@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView, useSpring } from 'framer-motion';
 import { Shield, Target, Globe, Users, Briefcase, Award, Zap, ChevronRight, ArrowRight, Download, ArrowUpRight, Plus } from 'lucide-react';
 import Partners from './Partners';
+import PageHeader from './PageHeader';
 
 interface AboutPageProps {
   onNavigate: (page: 'home' | 'about' | 'services' | 'contact') => void;
@@ -43,7 +44,9 @@ const ImpactCard: React.FC<{
   bgImage: string;
   delay: number;
   isDefaultHovered?: boolean;
-}> = ({ value, suffix, isFloat, label, bgImage, delay, isDefaultHovered = false }) => {
+  isText?: boolean;
+  textValue?: string;
+}> = ({ value, suffix, isFloat, label, bgImage, delay, isDefaultHovered = false, isText = false, textValue }) => {
   return (
     <motion.div
       initial="initial"
@@ -80,9 +83,13 @@ const ImpactCard: React.FC<{
             initial: { color: isDefaultHovered ? "#FFFFFF" : "#0f172a" },
             hover: { color: isDefaultHovered ? "#0f172a" : "#FFFFFF" }
           }}
-          className="text-4xl md:text-5xl font-black mb-8 tracking-tighter"
+          className="text-2xl md:text-3xl font-black mb-8 tracking-tighter leading-tight"
         >
-          <ImpactCounter value={value} suffix={suffix} isFloat={isFloat} />
+          {isText ? (
+            <span>{textValue}</span>
+          ) : (
+            <ImpactCounter value={value} suffix={suffix} isFloat={isFloat} />
+          )}
         </motion.div>
         
         <motion.p 
@@ -90,7 +97,7 @@ const ImpactCard: React.FC<{
             initial: { color: isDefaultHovered ? "rgba(255,255,255,0.8)" : "#64748b" },
             hover: { color: isDefaultHovered ? "#64748b" : "rgba(255,255,255,0.8)" }
           }}
-          className="font-medium leading-relaxed"
+          className="font-medium leading-relaxed text-sm"
         >
           {label}
         </motion.p>
@@ -104,27 +111,29 @@ const ImpactSection: React.FC = () => {
     {
       value: 40,
       suffix: "%",
-      label: "Reduction in last-mile delivery energy costs for our logistics partners in the first year.",
+      label: "Reduction in last-mile energy costs for logistics partners during pilot operations.",
       bgImage: "https://images.unsplash.com/photo-1548335122-f548ca1288f6?auto=format&fit=crop&q=80&w=800"
     },
     {
       value: 1.2,
-      suffix: "M",
+      suffix: "M km",
       isFloat: true,
-      label: "Total clean kilometers logged across the SwapStation network as of Q4 2023.",
+      label: "Clean kilometres logged across the SwapStation network to date.",
       bgImage: "https://images.unsplash.com/photo-1611241893603-3c359704e0ee?auto=format&fit=crop&q=80&w=800",
       isDefaultHovered: true
     },
     {
-      value: 100,
-      suffix: "%",
-      label: "Availability of renewable power at our primary solar-integrated logistics hubs.",
-      bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800"
+      value: 0,
+      suffix: "",
+      label: "Primary logistics hubs designed with solar-hybrid integration.",
+      bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800",
+      isText: true,
+      textValue: "Renewable-powered hubs"
     },
     {
       value: 250,
       suffix: "+",
-      label: "Active hubs deployed across Sub-Saharan Africa, supporting over 5,000 riders daily.",
+      label: "Active and planned swap hubs supporting thousands of riders daily.",
       bgImage: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1200"
     }
   ];
@@ -172,6 +181,8 @@ const ImpactSection: React.FC = () => {
               bgImage={stat.bgImage}
               delay={i * 0.1}
               isDefaultHovered={stat.isDefaultHovered}
+              isText={stat.isText}
+              textValue={stat.textValue}
             />
           ))}
         </div>
@@ -235,46 +246,18 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden bg-[#020617]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-emerald-600/5 blur-[100px] rounded-full" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-[10px]"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-[10px]">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-[10px]">
-              ABOUT
-            </span>
-          </motion.nav>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-12"
-          >
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "ABOUT" }
+        ]}
+        heading={
+          <>
             Enabling the transition <br /> to <span className="text-gradient">electric mobility.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            Swap Station Mobility (SSM) Limited is piloting the operational backbone for Sub-Saharan Africa's logistics EV platform.
-          </motion.p>
-        </div>
-      </section>
+          </>
+        }
+        description="SwapStation Mobility is building the operational backbone for electric logistics across Sub-Saharan Africa."
+      />
 
       {/* Story Section (Who We Are) */}
       <section className="py-32 px-6 md:px-12 bg-white overflow-hidden">
@@ -292,10 +275,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             
             <div className="space-y-6 mb-12">
               <p className="text-slate-600 text-base font-semibold leading-relaxed">
-                SwapStation Mobility Limited was set up to accelerate the adoption of e-mobility in both urban and rural markets, to improve livelihoods and the environment by providing renewable powered battery swapping facility to electric vehicles in Africa.
+                SwapStation Mobility was founded to accelerate the adoption of electric mobility across Africa's commercial logistics sector. We design, deploy, and operate renewable-powered battery swapping infrastructure that enables electric vehicles to operate reliably in both urban and peri-urban markets—reducing operating costs, improving fleet uptime, and lowering emissions.
               </p>
               <p className="text-slate-500 text-base font-medium leading-relaxed">
-                Blackaion Capital and FundCo Capital Managers are co-sponsoring Swapstation Mobility Limited—an electric vehicle and battery charging infrastructure company that enables access to low-cost, clean mobility alternatives to the internal combustion engine (ICE), initially targeting the logistics and last-mile delivery sector.
+                SwapStation Mobility is backed by experienced infrastructure investors and operators, including Blackaion Capital and FundCo Capital Managers, who provide strategic, technical, and financial support as the platform scales.
               </p>
             </div>
             
@@ -371,12 +354,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 Our team
               </span>
               <h2 className="text-4xl font-black text-white tracking-tight leading-[1] mb-12">
-                Our vision is to solve <span className="text-gradient">transport and mobility</span> challenges across Africa.
+                Our vision is to solve <span className="text-gradient">transport and mobility</span> challenges through scalable, commercially viable infrastructure.
               </h2>
               
               <div className="space-y-6 mb-10">
                 <p className="text-slate-400 font-medium leading-relaxed text-base">
-                  SwapStation Mobility was founded by managing partners with over 38 years in sustainable energy, clean energy finance, project development, infrastructure development and project finance.
+                  SwapStation Mobility was founded by operators and investors with over 38 years of combined experience across energy, clean infrastructure finance, project development, and large-scale asset deployment in Africa.
                 </p>
               </div>
 
@@ -480,7 +463,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
           <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-md transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
-            Contact for Strategic Info
+            Contact for Strategic Partnerships
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>
         </div>

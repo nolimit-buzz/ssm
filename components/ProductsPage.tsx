@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import PageHeader from './PageHeader';
 import { 
   Zap, 
   Gauge, 
@@ -103,21 +104,21 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
 
   const ecosystem = [
     {
-      title: "TANKVOLT T22",
-      image: "/e-okada.jpeg",
-      bgColor: "bg-emerald-50",
-      accentColor: "bg-emerald-400",
-      targetId: "tankvolt",
+      title: "NETWORK INFRASTRUCTURE",
+      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+      bgColor: "bg-slate-100",
+      accentColor: "bg-emerald-300",
+      targetId: "booth",
       specs: [
-        { icon: Gauge, label: "Top Speed", value: "85 km/h" },
-        { icon: Navigation, label: "Range", value: "150 km" },
-        { icon: Zap, label: "Motor", value: "3000W" },
-        { icon: Battery, label: "Battery", value: "Dual Pack" }
+        { icon: Cpu, label: "Control", value: "IoT-connected" },
+        { icon: LayoutGrid, label: "Capacity", value: "12 Slots" },
+        { icon: Zap, label: "Charging", value: "Simultaneous" },
+        { icon: Activity, label: "Protocol", value: "Smart Sync" }
       ]
     },
     {
-      title: "SMART BATTERIES",
-      image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&q=80&w=800",
+      title: "ENERGY CORE",
+      image: "/swapstation.jpg",
       bgColor: "bg-blue-50",
       accentColor: "bg-blue-400",
       targetId: "batteries",
@@ -129,64 +130,30 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
       ]
     },
     {
-      title: "SWAPSTATION BOOTH",
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
-      bgColor: "bg-slate-100",
-      accentColor: "bg-emerald-300",
-      targetId: "booth",
+      title: "FLEET VEHICLE",
+      image: "/e-okada.jpeg",
+      bgColor: "bg-emerald-50",
+      accentColor: "bg-emerald-400",
+      targetId: "tankvolt",
       specs: [
-        { icon: Cpu, label: "Control", value: "IoT-connected" },
-        { icon: LayoutGrid, label: "Capacity", value: "12 Slots" },
-        { icon: Zap, label: "Charging", value: "Simultaneous" },
-        { icon: Activity, label: "Protocol", value: "Smart Sync" }
+        { icon: Gauge, label: "Top Speed", value: "85 km/h" },
+        { icon: Navigation, label: "Range", value: "150 km" },
+        { icon: Zap, label: "Motor", value: "3000W" },
+        { icon: Battery, label: "Battery", value: "Dual Pack" }
       ]
     }
   ];
 
   return (
     <div className="bg-[#020617] min-h-screen">
-      {/* Header Section */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden bg-[#020617]">
-        {/* Background Atmosphere */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-emerald-600/5 blur-[100px] rounded-full" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-xs"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-xs">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-xs">
-              PRODUCTS
-            </span>
-          </motion.nav>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] mb-12"
-          >
-            The Future of <br /> <span className="text-gradient">Urban Mobility.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            Integrated hardware and software solutions powering the clean energy transition for commercial logistics.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "PRODUCTS" }
+        ]}
+        heading="The Future of Urban Mobility"
+        description="Integrated hardware and software solutions powering zero-downtime electric logistics for commercial fleets."
+      />
 
       {/* Section 1: Core Ecosystem Grid */}
       <section className="py-32 px-6 md:px-12 bg-white">
@@ -198,7 +165,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
                 Propulsion & Tech Advantage
               </span>
               <h2 className="text-5xl font-black text-slate-950 tracking-tighter leading-[1.1]">
-                Your Fleet — Powered by <br /> <span className="text-gradient">Smart, Swappable Tech.</span>
+                Your Fleet — Powered by <br /> <span className="text-gradient">Smart, Swappable Technology</span>
               </h2>
             </div>
             <div className="hidden lg:block pb-4">
@@ -237,7 +204,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
                    TankVolt <span className="text-emerald-500">T22-Pro</span>
                 </h2>
                 <p className="text-slate-500 max-w-2xl font-medium text-lg">
-                   Engineered specifically for African logistics. Rugged suspension, high payload capacity, and zero emissions.
+                   We are OEM-agnostic and TankVolt is one of several vehicle platforms delivered through strategic OEM partnerships and fully integrated into the SwapStation energy network.
                 </p>
              </div>
           </div>
@@ -415,18 +382,18 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
               <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-xs mb-6 block">Infrastructure</span>
               {/* UPDATED TITLE STYLING TO 3REM */}
               <h2 className="text-5xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-8">
-                The SwapStation <br /> <span className="text-gradient">Smart Hub.</span>
+                The SwapStation <br /> <span className="text-gradient">Smart Hub Batteries</span>
               </h2>
               <p className="text-slate-500 text-lg font-medium leading-relaxed mb-10">
-                A modular, automated energy vending machine. Fully integrated with solar inputs and grid backups to ensure 99.9% network uptime for your fleet.
+                A modular, automated energy vending machine. Fully integrated with solar inputs and grid backups to ensure target 99.9% network uptime for your fleet.
               </p>
               
               <ul className="space-y-6">
                 {[
-                  { icon: LayoutGrid, text: "12-Slot Simultaneous Charging" },
-                  { icon: Thermometer, text: "Active Thermal Management" },
+                  { icon: LayoutGrid, text: "12-36 slot simultaneous charging" },
+                  { icon: Thermometer, text: "Active Thermal management" },
                   { icon: Server, text: "4G/5G Network Redundancy" },
-                  { icon: CheckCircle2, text: "Swap in < 60 Seconds" }
+                  { icon: CheckCircle2, text: "Swap in 180 Seconds or less" }
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">

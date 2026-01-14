@@ -5,8 +5,8 @@ import { ArrowRight, Zap } from 'lucide-react';
 
 // Modular Content Configuration
 const HERO_CONTENT = {
-  headline: "Zero-Downtime Energy for Commercial Fleets.",
-  subheadline: "The sovereign mobility network powering Africa's logistics. Swap batteries in 90 seconds, eliminate fuel volatility, and guarantee 100% uptime.",
+  headline: "Zero-Downtime Energy for Commercial Fleets",
+  subheadline: "Powering Africa's logistics with a high-availability battery swapping network. Swap batteries in minutes, reduce fuel volatility, and keep fleets moving.",
   badge: "Live in Lagos • Expanding Nationwide",
   ctaPrimary: "Start Fleet Pilot",
   ctaSecondary: "View Station Map",
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           className="w-full h-full"
         >
           <video
-            src="https://cdn.gogoro.com/resources/pages/global-home/hero/video-global-hero.mp4"
+            src="/hero-video.mp4"
             autoPlay
             loop
             muted

@@ -41,7 +41,7 @@ const Partners: React.FC = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-8 max-w-2xl"
           >
-            Some of our amazing clients.
+            Trusted by Leading Logistics Operators
           </motion.h2>
           
           <motion.p 
@@ -51,9 +51,7 @@ const Partners: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-emerald-50/80 max-w-2xl text-lg font-medium leading-relaxed"
           >
-            We are proud to support the infrastructure for Africa's leading logistics providers. 
-            Our swapping network is designed to help these valuable partners maintain maximum uptime 
-            and operational efficiency.
+            We support Africa's leading logistics and delivery platforms with reliable, high-uptime electric mobility infrastructure.
           </motion.p>
         </div>
       </div>

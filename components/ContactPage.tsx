@@ -12,6 +12,7 @@ import {
   TrendingUp,
   Lock
 } from 'lucide-react';
+import PageHeader from './PageHeader';
 
 interface ContactPageProps {
   onNavigate: (page: 'home' | 'about' | 'services' | 'contact') => void;

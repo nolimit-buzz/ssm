@@ -5,13 +5,13 @@ import { Star, Quote } from 'lucide-react';
 const Testimonials: React.FC = () => {
   const reviews = [
     {
-      quote: "Swap Station transformed our unit economics. We've seen a 38% reduction in total energy costs across our entire dispatch fleet.",
+      quote: "SwapStation Mobility transformed our unit economics. We've seen a 38% reduction in total energy costs across our entire dispatch fleet.",
       author: "Tunde Alabi",
       role: "Operations Director, SwiftLogistics",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&h=100&auto=format&fit=crop"
     },
     {
-      quote: "The speed of the swap is what matters. Our riders stay on the move, and we get 100% uptime with zero charging anxiety.",
+      quote: "The speed of the swap is what matters. Our riders stay on the move, with near-continuous uptime and zero charging anxiety.",
       author: "Sarah Johnson",
       role: "Fleet Manager, UrbanExpress",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&h=100&auto=format&fit=crop"
@@ -27,7 +27,7 @@ const Testimonials: React.FC = () => {
             Driving <br className="md:hidden" /> Change Together.
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-2xl font-medium leading-relaxed">
-            Hear from the logistics leaders who have already made the switch to the Swap Station network.
+            Hear from the logistics leaders who have already made the switch to the SwapStation Mobility network.
           </p>
         </div>
 

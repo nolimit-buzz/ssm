@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Plus, Linkedin, ArrowUpRight } from 'lucide-react';
+import PageHeader from './PageHeader';
 
 interface TeamPageProps {
   onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'team') => void;
@@ -74,49 +75,14 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Hero Section (Dark Theme - Standardized) */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden bg-[#020617]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-600/5 blur-[100px] rounded-full" />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-[10px]"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-[10px]">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-[10px]">
-              THE TEAM
-            </span>
-          </motion.nav>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-6xl font-black text-white tracking-tighter leading-[1.1] mb-12"
-          >
-            Driven by <span className="text-gradient">Integrity</span> <br /> & Global Expertise.
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            A collective of specialists with over 38 years of experience in clean energy finance, infrastructure development, and automotive engineering.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "THE TEAM" }
+        ]}
+        heading="Meet the Team"
+        description="The visionaries and operators building Africa's electric mobility infrastructure."
+      />
 
       {/* Management Section (Light Theme) */}
       <section className="max-w-7xl mx-auto py-24 bg-white relative">

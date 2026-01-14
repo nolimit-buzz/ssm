@@ -2,6 +2,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Calendar, Plus, ChevronRight, ChevronLeft, Filter, ChevronDown, Check, X } from 'lucide-react';
+import PageHeader from './PageHeader';
 
 interface NewsPageProps {
   onNavigate: (page: any) => void;
@@ -417,51 +418,18 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
         }
       `}</style>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden bg-[#020617]">
-        {/* Background Atmosphere */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-emerald-600/5 blur-[100px] rounded-full" />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          {/* Breadcrumbs */}
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-xs"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-xs">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-xs">
-              NEWS
-            </span>
-          </motion.nav>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-12"
-          >
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "NEWS" }
+        ]}
+        heading={
+          <>
             Latest <span className="text-gradient">News.</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            Updates, insights, and announcements from the frontlines of Africa's energy transition.
-          </motion.p>
-        </div>
-      </section>
+          </>
+        }
+        description="Updates, insights, and announcements from the frontlines of Africa's energy transition."
+      />
 
       {/* --- FEATURED ARTICLE SLIDER --- */}
       {isLoading ? (

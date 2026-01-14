@@ -12,9 +12,8 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
   const bikeImageUrl = "https://images.unsplash.com/photo-1558444479-c848261286a2?auto=format&fit=crop&q=80&w=1200";
 
   const stats = [
-    { value: "50+", label: "Cities" },
-    { value: "ONE", label: "Platform" },
-    { value: "120K+", label: "Clean KM" },
+    { value: "One", label: "Unified Platform" },
+    { value: "120k+", label: "Clean Kilometres" },
     { value: "300+", label: "Daily Swaps" }
   ];
 
@@ -40,7 +39,7 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 max-w-4xl"
         >
-          Your Fleet — Powered by <br /> Smart, Swappable Tech.
+          Your Fleet — Powered by <br /> Smart, Swappable Technology
         </motion.h2>
 
         {/* Description Text */}
@@ -51,11 +50,11 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-slate-500 max-w-3xl mx-auto text-lg font-medium leading-relaxed mb-20"
         >
-          SwapStation Mobility combines advanced 2W/3W EVs, intelligent lithium battery packs, and IoT-enabled SwapStations to deliver scalable logistics electrification—built for uptime, safety, and speed.
+          SwapStation Mobility integrates advanced 2W/3W electric vehicles, intelligent lithium battery systems, and IoT-enabled swap stations to deliver scalable logistics electrification — engineered for uptime, safety, and speed.
         </motion.p>
 
         {/* Optimized Stats Grid - Following the 4rem style */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-20 w-full max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 mb-20 w-full max-w-5xl">
           {stats.map((stat, i) => (
             <motion.div 
               key={i}

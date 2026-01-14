@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <FooterLogo />
             </div>
             <p className="text-slate-500 max-w-sm mb-10 text-md font-medium leading-relaxed">
-              Empowering the clean energy transition for commercial logistics through smart battery-swapping infrastructure.
+              Empowering the clean energy transition for commercial logistics through smart battery swapping infrastructure.
             </p>
             <div className="flex items-center gap-4">
               {[Twitter, Linkedin, Github].map((Icon, i) => (
@@ -80,7 +80,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black text-slate-600 uppercase tracking-widest">
-          <div>© 2024 Swap Station Technologies. Nigeria.</div>
+          <div>© 2024 SwapStation Mobility. Nigeria.</div>
           <div className="flex gap-10">
             <button onClick={() => onNavigate && onNavigate('privacy')} className="hover:text-white transition-colors">Privacy</button>
             <button onClick={() => onNavigate && onNavigate('terms')} className="hover:text-white transition-colors">Legal</button>

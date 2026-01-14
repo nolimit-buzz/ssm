@@ -5,7 +5,7 @@ import { MapPin, Info, RefreshCcw } from 'lucide-react';
 const LiveMap: React.FC = () => {
   const stations = [
     { name: "Lagos Mainland Hub", status: "Active", uptime: "99.8%", batteries: 24 },
-    { name: "Victoria Island Station", status: "Active", uptime: "100%", batteries: 18 },
+    { name: "Victoria Island Station", status: "Active", uptime: "99.9%", batteries: 18 },
     { name: "Lekki Phase 1 Depot", status: "Active", uptime: "99.9%", batteries: 32 },
   ];
 
@@ -26,9 +26,7 @@ const LiveMap: React.FC = () => {
               Total Visibility Into Your Fleet’s Fuel.
             </h2>
             <p className="text-slate-500 text-md mb-12 leading-relaxed font-medium">
-              Every station, battery, and swap is tracked. Our enterprise dashboard 
-              gives logistics managers the granular data needed to optimize route planning 
-              and energy consumption across the entire network.
+              Explore our growing network of live and planned swap hubs.
             </p>
 
             <div className="grid grid-cols-2 gap-8 mb-16">
@@ -43,7 +41,7 @@ const LiveMap: React.FC = () => {
             </div>
 
             <button className="bg-slate-950 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center gap-4 hover:bg-emerald-600 transition-all group shadow-2xl">
-              Launch Network Map
+              Find a Swap Station
               <div className="w-12 h-1.5 bg-emerald-500 rounded-full" />
             </button>
           </motion.div>

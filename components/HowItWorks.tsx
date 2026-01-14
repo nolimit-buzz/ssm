@@ -33,7 +33,7 @@ const HowItWorks: React.FC = () => {
     {
       icon: Smartphone,
       title: "Check Status",
-      desc: "Rider monitors battery levels via our real-time IoT platform."
+      desc: "Riders monitor battery levels on their EVs or through our real-time IoT platform."
     },
     {
       icon: MapPin,
@@ -43,12 +43,12 @@ const HowItWorks: React.FC = () => {
     {
       icon: RefreshCw,
       title: "Rapid Swap",
-      desc: "Instant physical exchange of depleted units for fully charged power."
+      desc: "Instant physical exchange of depleted batteries for fully charged units."
     },
     {
       icon: Zap,
       title: "Continue",
-      desc: "Immediate resumption of delivery journey with zero downtime."
+      desc: "Immediate return to service with zero charging downtime."
     }
   ];
 
@@ -83,9 +83,9 @@ const HowItWorks: React.FC = () => {
               <Clock className="w-7 h-7" />
             </div>
             <div>
-              <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-1">Avg. Swap Time</div>
+              <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-1">AVG. SWAP TIME</div>
               <div className="text-4xl font-black tabular-nums">
-                <StatCounter value={180} suffix="s" />
+                ~<StatCounter value={180} suffix=" seconds" />
               </div>
             </div>
           </motion.div>
