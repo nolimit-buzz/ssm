@@ -43,10 +43,10 @@ const FleetFeature = ({ onNavigate }: { onNavigate: any }) => {
                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                <span className="text-xs font-black uppercase tracking-[0.2em] text-emerald-500">For Fleet Managers</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-6">
                Reimagining <br /> Fleet Logistics.
             </h2>
-            <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8 max-w-md">
+            <p className="text-slate-400 text-base font-medium leading-relaxed mb-8 max-w-sm">
                Traditional combustion fleets are holding your business back with volatile costs and high maintenance. Swap Station is the modern alternative.
             </p>
             <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
@@ -161,10 +161,10 @@ const RiderFeature = ({ onNavigate }: { onNavigate: any }) => {
                <Zap className="w-3 h-3 text-blue-400" />
                <span className="text-xs font-black uppercase tracking-[0.2em] text-blue-400">For Riders</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-6">
                Own Your Energy <br /> Future.
             </h2>
-            <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8 max-w-md">
+            <p className="text-slate-400 text-base font-medium leading-relaxed mb-8 max-w-sm">
                Move from expensive fuel to clean energy with zero upfront stress. Our Lease-to-Own plans give you back independence.
             </p>
             <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
@@ -205,10 +205,10 @@ const GetStartedSection: React.FC<GetStartedProps> = ({ onNavigate }) => {
             <span className="text-emerald-500 font-black uppercase tracking-[0.6em] text-xs mb-8 block">
               To Get Started
             </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none mb-10">
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-none mb-10">
               Simplify your logistics with <br /> <span className="text-gradient">Swap Station Mobility.</span>
             </h2>
-            <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed mb-12">
+            <p className="text-slate-400 text-lg md:text-lg font-medium max-w-2xl mx-auto leading-relaxed mb-12">
               From fleet optimization to individual lease-to-own, Swap Station Mobility makes electric mobility simple, transparent, and stress-free. We handle the complexity so you can focus on what matters most.
             </p>
             <motion.div 

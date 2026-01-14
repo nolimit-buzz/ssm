@@ -98,7 +98,7 @@ const AccordionItem: React.FC<{ question: string; answer: string }> = ({ questio
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
       >
-        <span className={`font-bold text-lg transition-colors ${isOpen ? 'text-emerald-600' : 'text-slate-900 group-hover:text-emerald-600'}`}>
+        <span className={`font-bold text-base transition-colors ${isOpen ? 'text-emerald-600' : 'text-slate-900 group-hover:text-emerald-600'}`}>
           {question}
         </span>
         {isOpen ? <ChevronUp className="w-5 h-5 text-emerald-600" /> : <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-emerald-600" />}
@@ -149,7 +149,7 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">The Process</span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">Your Path to Ownership</h2>
+            <h2 className="text-4xl md:text-4xl font-black text-slate-900 tracking-tighter">Your Path to Ownership</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
@@ -183,7 +183,7 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 text-center">
             <span className="text-emerald-500 font-black uppercase tracking-[0.4em] text-xs mb-4 block">Financial Clarity</span>
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter">Transparent Pricing. No Hidden Fees.</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">Transparent Pricing. No Hidden Fees.</h2>
           </div>
 
           {/* Pricing Grid */}
@@ -287,7 +287,7 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
                <Zap className="w-3 h-3 text-emerald-400" />
                <span className="text-xs font-black uppercase tracking-[0.2em] text-emerald-400">Tank Volt T22</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-8 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter mb-8 leading-tight">
               Engineered for <br /> African Logistics.
             </h2>
             <p className="text-slate-400 text-lg mb-12 leading-relaxed">
@@ -321,7 +321,7 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
         <div className="max-w-4xl mx-auto">
           
           <div className="mb-20">
-            <h3 className="text-3xl font-black text-slate-900 mb-8 tracking-tight">Eligibility Requirements</h3>
+            <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">Eligibility Requirements</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {[
                  "Valid Rider's Card / Driver's License",
@@ -333,14 +333,14 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
               ].map((req, i) => (
                 <div key={i} className="flex items-center gap-3">
                    <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                   <span className="text-slate-700 font-medium">{req}</span>
+                   <span className="text-slate-700 font-medium text-[14px]">{req}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="border-t border-slate-100 pt-20">
-            <h3 className="text-3xl font-black text-slate-900 mb-10 tracking-tight text-center">Frequently Asked Questions</h3>
+            <h3 className="text-2xl font-black text-slate-900 mb-10 tracking-tight text-center">Frequently Asked Questions</h3>
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
                {FAQS.map((faq, i) => (
                  <AccordionItem key={i} question={faq.question} answer={faq.answer} />
@@ -411,12 +411,12 @@ const LeaseToOwnPage: React.FC<LeaseToOwnPageProps> = ({ onNavigate }) => {
             <Bike className="w-3.5 h-3.5" />
             <span>Ownership Path</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to own <br /> your future?
           </h2>
           <button 
             onClick={() => onNavigate('contact')}
-            className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20"
+            className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20"
           >
             Start Application
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

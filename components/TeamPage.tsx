@@ -58,19 +58,14 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
     
   ];
 
+  const board = [
+    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" }, { name: "Bolarinwa Motoni", role: "CTO", image: "/bola.jpeg" } ];
+
   const coreTeam = [
-    // { name: "Jojololami Ngene", role: "Technical Analyst", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Oluwatobi Sholanke", role: "Financial Analyst", image: "/solanke.png" },
-    { name: "Ahmed Musa", role: "Head of Operations", image: "/ahmed.png" },
-    // { name: "Chioma Uzor", role: "Senior Hardware Engineer", image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?q=80&w=800&auto=format&fit=crop" },
-    // { name: "David Kone", role: "Grid Integration", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Sarah Bello", role: "IoT Systems Lead", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Ibrahim K.", role: "Fleet Deployment", image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Nneka Obi", role: "Impact Lead", image: "https://images.unsplash.com/photo-1567532939604-b6c5b0ad2e01?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Tunde Alabi", role: "Network Architect", image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Grace Edem", role: "Compliance Lead", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Femi Ade", role: "BMS Engineering", image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop" },
-    // { name: "Amara Okeke", role: "Supply Chain", image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" }
+    { name: "Idongesit Paulinus", role: "Technical Analyst", image: "/idee.jpeg" },
+    { name: "Kevin Chukwuma Ebirim", role: "Financial Analyst", image: "/kevin.jpeg" },
+    { name: "Morountodun Obaigbo", role: "Head of Operations", image: "/tundun.jpeg" },
+    { name: "Adigun Olawale", role: "Senior Hardware Engineer", image: "/adigun.jpeg" },
   ];
 
   return (
@@ -125,8 +120,36 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
+      {/* Board Section (Grey Background) */}
+      {board.length > 0 && (
+        <section className="py-32 px-6 md:px-12 bg-slate-50 border-y border-slate-100">
+          <div className="max-w-7xl mx-auto">
+            <div className="mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 relative z-10">
+              {/* Side Title */}
+              <div className="hidden md:w-[120px] shrink-0 pt-4"></div>
+              
+              <div className="mb-20 text-center lg:text-left">
+                <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">BOARD</span>
+                <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight whitespace-nowrap">
+                  Board of Directors.
+                </h2>
+              </div>
+
+              {/* Board Grid */}
+              <div className="flex-grow grid sm:grid-cols-2 gap-10 lg:gap-16">
+                {board.map((member, i) => (
+                  <div key={i} className="max-w-md mx-auto w-full">
+                    <TeamCard {...member} delay={i * 0.1} isLarge={true} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* The Core Team Section (Light Theme) */}
-      <section className="py-32 px-6 md:px-12 bg-slate-50 border-y border-slate-100">
+      <section className="py-32 px-6 md:px-12 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 text-center lg:text-left">
             <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">THE TEAM</span>

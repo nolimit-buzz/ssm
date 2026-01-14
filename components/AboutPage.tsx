@@ -233,14 +233,14 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       image: "/abiodun.png" 
     },
     { 
+      name: "Bolarinwa Motoni", 
+      role: "CTO", 
+      image: "/bola.jpeg" 
+    },
+    { 
       name: "Okwu Njoku", 
       role: "Director, Non-Executive", 
       image: "/okwu.jpg" 
-    },
-    { 
-      name: "Oluwatobi Sholanke", 
-      role: "Financial Analyst", 
-      image: "/ahmed.png" 
     }
   ];
 
@@ -349,7 +349,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       <section className="py-32 px-6 md:px-12 bg-[#020617] border-b border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-10 mb-20">
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-500 mb-8 block">
                 Our team
               </span>
@@ -459,10 +459,10 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Strategic Alignment</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
             Ready to integrate with <br /> Africa's energy backbone?
           </h2>
-          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-md transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
+          <button className="bg-white hover:bg-emerald-50 text-emerald-900 px-12 py-5 rounded-2xl font-black text-sm transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-900/20">
             Contact for Strategic Partnerships
             <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
           </button>

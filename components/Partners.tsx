@@ -39,7 +39,7 @@ const Partners: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-8 max-w-2xl"
+            className="text-4xl md:text-4xl font-black text-white tracking-tighter mb-8 max-w-2xl"
           >
             Trusted by Leading Logistics Operators
           </motion.h2>
@@ -49,7 +49,7 @@ const Partners: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-emerald-50/80 max-w-2xl text-lg font-medium leading-relaxed"
+            className="text-emerald-50/80 max-w-2xl text-base font-medium leading-relaxed"
           >
             We support Africa's leading logistics and delivery platforms with reliable, high-uptime electric mobility infrastructure.
           </motion.p>

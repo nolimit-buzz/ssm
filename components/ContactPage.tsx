@@ -100,48 +100,18 @@ const StatsSlider: React.FC = () => {
 const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   return (
     <div className="bg-white min-h-screen">
-      {/* Hero Section - Standardized Height to match About/Services */}
-      <section className="relative min-h-[55vh] flex items-center justify-center pt-32 overflow-hidden bg-[#020617]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/10 blur-[150px] rounded-full" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-600/5 blur-[120px] rounded-full" />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <motion.nav 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center gap-4 mb-8"
-          >
-            <button 
-              onClick={() => onNavigate('home')}
-              className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-[10px]"
-            >
-              HOME
-            </button>
-            <span className="text-slate-600 font-black tracking-widest text-[10px]">—</span>
-            <span className="text-slate-400 font-black uppercase tracking-[0.5em] text-[10px]">
-              CONTACT
-            </span>
-          </motion.nav>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-[4rem] font-black text-white tracking-tighter leading-[1.1] mb-8"
-          >
-            Let’s Drive <br /> Forward, <span className="text-gradient">Together.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
-          >
-            Partner with Africa’s most resilient e-mobility network. Reach out for strategic deployment, investment inquiries, or pilot programs.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[
+          { label: "HOME", page: "home", onClick: () => onNavigate('home') },
+          { label: "CONTACT" }
+        ]}
+        heading={
+          <>
+            Let's Drive <br /> Forward, <span className="text-gradient">Together.</span>
+          </>
+        }
+        description="Partner with Africa's most resilient e-mobility network. Reach out for strategic deployment, investment inquiries, or pilot programs."
+      />
 
       {/* Main Content Area - White Theme */}
       <section className="px-6 md:px-12 py-32 bg-white relative">

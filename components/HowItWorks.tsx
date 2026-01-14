@@ -84,7 +84,7 @@ const HowItWorks: React.FC = () => {
             </div>
             <div>
               <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-1">AVG. SWAP TIME</div>
-              <div className="text-4xl font-black tabular-nums">
+              <div className="text-3xl font-black tabular-nums">
                 ~<StatCounter value={180} suffix=" seconds" />
               </div>
             </div>

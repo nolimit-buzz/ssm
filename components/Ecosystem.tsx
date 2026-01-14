@@ -119,7 +119,7 @@ const Ecosystem: React.FC = () => {
                   {features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                      <span className="text-slate-200 font-medium tracking-tight text-base">{feature}</span>
+                      <span className="text-slate-200 font-medium tracking-tight text-[14px]">{feature}</span>
                     </div>
                   ))}
                 </div>

@@ -31,7 +31,7 @@ const PainSolution: React.FC = () => {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-slate-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed"
+            className="text-slate-500 max-w-5xl mx-auto text-lg font-medium leading-relaxed"
           >
             Traditional combustion fleets hold businesses back with volatile fuel costs, high maintenance, and operational downtime. SwapStation Mobility is the modern electric alternative.
           </motion.p>
@@ -65,7 +65,7 @@ const PainSolution: React.FC = () => {
                       <item.icon className="w-6 h-6 text-red-600" />
                     </div>
                     <div>
-                      <h4 className="font-black text-slate-900 text-lg tracking-tight mb-1">{item.title}</h4>
+                      <h4 className="font-black text-slate-900 text-base tracking-tight mb-1">{item.title}</h4>
                       <p className="text-slate-500 font-medium text-xs leading-relaxed max-w-[280px]">{item.desc}</p>
                     </div>
                   </li>
@@ -100,7 +100,7 @@ const PainSolution: React.FC = () => {
                       <item.icon className="w-6 h-6 text-emerald-50" />
                     </div>
                     <div>
-                      <h4 className="font-black text-white text-lg tracking-tight mb-1">{item.title}</h4>
+                      <h4 className="font-black text-white text-base tracking-tight mb-1">{item.title}</h4>
                       <p className="text-emerald-100/80 font-medium text-xs leading-relaxed max-w-[280px]">{item.desc}</p>
                     </div>
                   </li>

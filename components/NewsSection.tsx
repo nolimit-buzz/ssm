@@ -58,7 +58,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ onNavigate, onReadArticle, on
             <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block">
               Newsroom
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-tight">
+            <h2 className="text-4xl md:text-4xl font-black text-slate-900 tracking-tighter leading-tight">
               Latest Updates & <br /> <span className="text-gradient">Market Intelligence.</span>
             </h2>
           </motion.div>
@@ -105,13 +105,13 @@ const NewsSection: React.FC<NewsSectionProps> = ({ onNavigate, onReadArticle, on
                 </div>
               </div>
 
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-7 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 text-slate-400 text-xs font-bold mb-4">
                   <Calendar className="w-3.5 h-3.5" />
                   {item.date}
                 </div>
                 
-                <h3 className="text-xl font-black text-slate-900 leading-tight mb-4 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-lg font-black text-slate-900 leading-tight mb-4 group-hover:text-emerald-600 transition-colors">
                   {item.title}
                 </h3>
                 

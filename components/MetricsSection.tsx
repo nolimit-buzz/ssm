@@ -37,7 +37,7 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 max-w-4xl"
+          className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 max-w-4xl"
         >
           Your Fleet — Powered by <br /> Smart, Swappable Technology
         </motion.h2>
@@ -48,7 +48,7 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-slate-500 max-w-3xl mx-auto text-lg font-medium leading-relaxed mb-20"
+          className="text-slate-500 max-w-4xl mx-auto text-base font-medium leading-relaxed mb-20"
         >
           SwapStation Mobility integrates advanced 2W/3W electric vehicles, intelligent lithium battery systems, and IoT-enabled swap stations to deliver scalable logistics electrification — engineered for uptime, safety, and speed.
         </motion.p>
@@ -64,7 +64,7 @@ const MetricsSection: React.FC<MetricsSectionProps> = ({ onNavigate }) => {
               transition={{ delay: 0.2 + (i * 0.1), duration: 0.6 }}
               className="flex flex-col items-center"
             >
-              <div className="text-4xl md:text-[4rem] font-black text-slate-900 tracking-tighter mb-2 leading-none">
+              <div className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-2 leading-none">
                 {stat.value}
               </div>
               <div className="text-[11px] font-black text-slate-400 uppercase tracking-[0.3em]">

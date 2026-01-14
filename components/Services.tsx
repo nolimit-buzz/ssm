@@ -74,8 +74,8 @@ const ServiceGroup: React.FC<{
                 <item.icon className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-white font-black text-md tracking-tight mb-1">{item.label}</div>
-                <div className="text-emerald-50 text-xs font-medium leading-relaxed group-hover:text-white transition-colors">{item.sub}</div>
+                <div className="text-white font-black text-base tracking-tight mb-1">{item.label}</div>
+                <div className="text-emerald-50 text-sm font-medium leading-relaxed group-hover:text-white transition-colors">{item.sub}</div>
               </div>
             </div>
           ))}
