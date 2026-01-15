@@ -3,18 +3,13 @@ import { motion } from 'framer-motion';
 import { Building2, Briefcase, CheckCircle2, Plus } from 'lucide-react';
 
 const strategicPartners = [
-  "InfraCredit", 
-  "Siemens", 
-  "Sterling", 
-  "Chapel Hill Denham", 
-  "Stanbic IBTC", 
-  "TotalEnergies",
   "Glovo",
   "Kwik",
-  "Jumia Logistics",
-  "GIG Logistics",
-  "Sendbox",
-  "Konga Food"
+  "Uber",
+  "Moli Logistics",
+  "FoodCourt",
+ "Access Bank",
+ "Sterling Bank",
 ];
 
 const PartnerCard: React.FC<{ name: string }> = ({ name }) => (

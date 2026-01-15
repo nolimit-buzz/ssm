@@ -104,7 +104,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
   const ecosystem = [
     {
       title: "NETWORK INFRASTRUCTURE",
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800",
+      image: "/infrastructure.jpeg",
       bgColor: "bg-slate-100",
       accentColor: "bg-emerald-300",
       targetId: "booth",
