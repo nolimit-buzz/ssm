@@ -5,7 +5,7 @@ import PageHeader from './PageHeader';
 import StrategicAlignmentCTA from './StrategicAlignmentCTA';
 
 interface TeamPageProps {
-  onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'team') => void;
+  onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'team' | 'careers') => void;
 }
 
 const TeamCard: React.FC<{ name: string; role: string; image: string; delay: number; isLarge?: boolean }> = ({ name, role, image, delay, isLarge = false }) => (
@@ -150,7 +150,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
           </>
         }
         buttonText="Careers at SwapStation"
-        buttonOnClick={() => onNavigate('contact')}
+        buttonOnClick={() => onNavigate('careers')}
         badgeText="Join Our Mission"
       />
 

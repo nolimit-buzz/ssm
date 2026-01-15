@@ -4,8 +4,8 @@ import { Menu, User, ChevronRight, MapPin, ChevronDown, Sun, Moon } from 'lucide
 
 interface HeaderProps {
   scrolled: boolean;
-  currentPage: 'home' | 'about' | 'services' | 'contact' | 'locator' | 'team' | 'products' | 'news' | 'single-news' | 'lease-to-own';
-  onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'locator' | 'team' | 'products' | 'news' | 'single-news' | 'lease-to-own') => void;
+  currentPage: 'home' | 'about' | 'services' | 'contact' | 'locator' | 'team' | 'products' | 'news' | 'single-news' | 'lease-to-own' | 'careers';
+  onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'locator' | 'team' | 'products' | 'news' | 'single-news' | 'lease-to-own' | 'careers') => void;
   showThemeToggle?: boolean;
   isDarkMode?: boolean;
   onToggleTheme?: () => void;

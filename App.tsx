@@ -23,10 +23,11 @@ import SingleNewsPage from './components/SingleNewsPage';
 import LegalPage from './components/LegalPage';
 import LeaseToOwnPage from './components/LeaseToOwnPage';
 import NewsCategoryPage from './components/NewsCategoryPage';
+import CareersPage from './components/CareersPage';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'services' | 'contact' | 'locator' | 'team' | 'products' | 'news' | 'single-news' | 'privacy' | 'terms' | 'lease-to-own' | 'news-category'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'services' | 'contact' | 'locator' | 'team' | 'products' | 'news' | 'single-news' | 'privacy' | 'terms' | 'lease-to-own' | 'news-category' | 'careers'>('home');
   const [selectedArticle, setSelectedArticle] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   
@@ -162,6 +163,8 @@ const App: React.FC = () => {
           <LegalPage type="privacy" onNavigate={handleNavigate} />
         ) : currentPage === 'terms' ? (
           <LegalPage type="terms" onNavigate={handleNavigate} />
+        ) : currentPage === 'careers' ? (
+          <CareersPage onNavigate={handleNavigate} />
         ) : (
           <LocatorPage 
             onNavigate={handleNavigate}
