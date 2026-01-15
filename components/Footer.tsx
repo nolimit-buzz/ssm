@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Linkedin, Github, ArrowUpRight } from 'lucide-react';
+import { Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 interface FooterProps {
   onNavigate?: (page: any) => void;
 }
@@ -22,15 +22,22 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Empowering the clean energy transition for commercial logistics through smart battery swapping infrastructure.
             </p>
             <div className="flex items-center gap-4">
-              {[Twitter, Linkedin, Github].map((Icon, i) => (
-                <a 
-                  key={i}
-                  href="#" 
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all shadow-sm cursor-pointer"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              <a 
+                href="https://www.instagram.com/swap_stationmobility?igsh=YXM1YXB0aWt2ZGFv" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all shadow-sm cursor-pointer"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/swap-station-mobility-ssm/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all shadow-sm cursor-pointer"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

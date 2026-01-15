@@ -54,19 +54,21 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
       name: "Abiodun Oni", 
       role: "Co-Founder", 
       image: "/abiodun.png" 
-    }
+    },
+    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" }
    
     
   ];
 
   const board = [
-    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" }, { name: "Bolarinwa Motoni", role: "CTO", image: "/bola.jpeg" } ];
+    , ];
 
   const coreTeam = [
-    { name: "Idongesit Paulinus", role: "Technical Analyst", image: "/idee.jpeg" },
-    { name: "Kevin Chukwuma Ebirim", role: "Financial Analyst", image: "/kevin.jpeg" },
-    { name: "Morountodun Obaigbo", role: "Head of Operations", image: "/tundun.jpeg" },
-    { name: "Adigun Olawale", role: "Senior Hardware Engineer", image: "/adigun.jpeg" },
+    { name: "Bolarinwa Motoni", role: "CTO", image: "/bola.jpeg" },
+    { name: "Morountodun Obaigbo", role: "Director, infrastructure solution", image: "/tundun.jpeg" },
+    { name: "Kevin Chukwuma Ebirim", role: "IOT Specialist", image: "/kevin.jpeg" },
+    { name: "Idongesit Paulinus", role: "HR & Admin", image: "/idee.jpeg" },
+    { name: "Adigun Olawale", role: "Operations Officer", image: "/adigun.jpeg" },
   ];
 
   return (
@@ -121,36 +123,10 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Board Section (Grey Background) */}
-      {board.length > 0 && (
-        <section className="py-32 px-6 md:px-12 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto">
-            <div className="mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 relative z-10">
-              {/* Side Title */}
-              <div className="hidden md:w-[120px] shrink-0 pt-4"></div>
-              
-              <div className="mb-20 text-center lg:text-left">
-                <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">BOARD</span>
-                <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight whitespace-nowrap">
-                  Board of Directors.
-                </h2>
-              </div>
-
-              {/* Board Grid */}
-              <div className="flex-grow grid sm:grid-cols-2 gap-10 lg:gap-16">
-                {board.map((member, i) => (
-                  <div key={i} className="max-w-md mx-auto w-full">
-                    <TeamCard {...member} delay={i * 0.1} isLarge={true} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      
 
       {/* The Core Team Section (Light Theme) */}
-      <section className="py-32 px-6 md:px-12 bg-white border-y border-slate-100">
+      <section className="py-32 px-6 md:px-12 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 text-center lg:text-left">
             <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">THE TEAM</span>
