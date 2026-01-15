@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Plus, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Linkedin, ArrowUpRight } from 'lucide-react';
 import PageHeader from './PageHeader';
+import StrategicAlignmentCTA from './StrategicAlignmentCTA';
 
 interface TeamPageProps {
   onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'team') => void;
@@ -166,25 +167,16 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Final CTA Section (Dark Theme) */}
-      <section className="py-32 px-6 bg-[#051F19]">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl border border-white/10 px-6 py-2 rounded-full text-emerald-400 text-[10px] font-black tracking-[0.4em] uppercase mb-12">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Join Our Mission</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-10 leading-tight">
+      <StrategicAlignmentCTA
+        heading={
+          <>
             Help us build the energy <br /> backbone for Africa.
-          </h2>
-          <button 
-            onClick={() => onNavigate('contact')}
-            className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-base transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20"
-          >
-            Careers at SwapStation
-            <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
-          </button>
-        </div>
-      </section>
+          </>
+        }
+        buttonText="Careers at SwapStation"
+        buttonOnClick={() => onNavigate('contact')}
+        badgeText="Join Our Mission"
+      />
 
       <style>{`
         @media (min-width: 768px) {

@@ -40,7 +40,7 @@ const LiveMap: React.FC = () => {
               </div>
             </div>
 
-            <button className="bg-slate-950 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center gap-4 hover:bg-emerald-600 transition-all group shadow-2xl">
+            <button className="bg-slate-950 text-white px-12 py-6 rounded-2xl font-black text-lg flex items-center gap-4 hover:bg-emerald-600 transition-all group shadow-2xl cursor-pointer">
               Find a Swap Station
               <div className="w-12 h-1.5 bg-emerald-500 rounded-full" />
             </button>

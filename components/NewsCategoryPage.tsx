@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GENERATED_NEWS, NewsCard } from './NewsPage';
 import PageHeader from './PageHeader';
+import StrategicAlignmentCTA from './StrategicAlignmentCTA';
 
 interface NewsCategoryPageProps {
   category: string;
@@ -77,6 +78,16 @@ const NewsCategoryPage: React.FC<NewsCategoryPageProps> = ({ category, onNavigat
           )}
         </div>
       </section>
+
+      <StrategicAlignmentCTA
+        heading={
+          <>
+            Ready to integrate with <br /> Africa's energy backbone?
+          </>
+        }
+        buttonText="Contact for Strategic Partnerships"
+        buttonOnClick={() => onNavigate('contact')}
+      />
     </div>
   );
 };

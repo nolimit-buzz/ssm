@@ -424,7 +424,7 @@ const LocatorPage: React.FC<LocatorPageProps> = ({ onNavigate, isDarkMode, onTog
         <div className="absolute top-6 right-6 z-[1000] flex items-center gap-4">
           <button 
             onClick={resetMap}
-            className={`w-11 h-11 rounded-full flex items-center justify-center border shadow-xl backdrop-blur-md transition-all ${
+            className={`w-11 h-11 rounded-full flex items-center justify-center border shadow-xl backdrop-blur-md transition-all cursor-pointer ${
                isDarkMode 
                ? 'bg-slate-900/80 border-white/10 text-slate-400 hover:text-white' 
                : 'bg-white/90 border-slate-200 text-slate-400 hover:text-slate-600'
@@ -437,13 +437,13 @@ const LocatorPage: React.FC<LocatorPageProps> = ({ onNavigate, isDarkMode, onTog
           <div className={`flex p-1 rounded-full border shadow-xl backdrop-blur-md transition-colors ${isDarkMode ? 'bg-slate-900/80 border-white/10' : 'bg-white/90 border-slate-200'}`}>
             <button 
               onClick={() => !isDarkMode && onToggleTheme()}
-              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${isDarkMode ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${isDarkMode ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
             >
               <Moon className="w-4 h-4" />
             </button>
             <button 
               onClick={() => isDarkMode && onToggleTheme()}
-              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${!isDarkMode ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'}`}
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${!isDarkMode ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-200'}`}
             >
               <Sun className="w-4 h-4" />
             </button>

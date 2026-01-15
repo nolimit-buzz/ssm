@@ -13,7 +13,7 @@ const FinalCTA: React.FC = () => {
         <p className="text-slate-300 max-w-3xl mx-auto text-lg font-medium leading-relaxed mb-10">
           From fleet optimization to individual lease-to-own programs, we make electric mobility simple, transparent, and scalable — so you can focus on what matters most.
         </p>
-        <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-4 mx-auto shadow-2xl shadow-emerald-600/20">
+        <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-4 mx-auto shadow-2xl shadow-emerald-600/20 cursor-pointer">
           Request a Fleet Demo
         </button>
       </div>

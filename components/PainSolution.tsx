@@ -109,7 +109,7 @@ const PainSolution: React.FC = () => {
             </div>
             
             <div className="relative z-10 mt-12 pt-8 border-t border-white/10">
-              <button className="w-full bg-white text-emerald-700 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-xl hover:bg-emerald-50 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 group">
+              <button className="w-full bg-white text-emerald-700 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-xl hover:bg-emerald-50 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 group cursor-pointer">
                 Calculate Your ROI
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>

@@ -3,6 +3,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Calendar, Plus, ChevronRight, ChevronLeft, Filter, ChevronDown, Check, X } from 'lucide-react';
 import PageHeader from './PageHeader';
+import StrategicAlignmentCTA from './StrategicAlignmentCTA';
 
 interface NewsPageProps {
   onNavigate: (page: any) => void;
@@ -282,7 +283,7 @@ export const NewsCard: React.FC<{ item: NewsItem, index: number, onClick: () => 
             e.stopPropagation();
             if (onCategoryClick) onCategoryClick(item.category);
           }}
-          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ${item.bgColor} ${item.color} border ${item.borderColor} hover:bg-white transition-colors hover:shadow-md`}
+          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ${item.bgColor} ${item.color} border ${item.borderColor} hover:bg-white transition-colors hover:shadow-md cursor-pointer`}
         >
           {item.category}
         </button>
@@ -698,6 +699,16 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
           )}
         </div>
       </section>
+
+      <StrategicAlignmentCTA
+        heading={
+          <>
+            Ready to integrate with <br /> Africa's energy backbone?
+          </>
+        }
+        buttonText="Contact for Strategic Partnerships"
+        buttonOnClick={() => onNavigate('contact')}
+      />
     </div>
   );
 };

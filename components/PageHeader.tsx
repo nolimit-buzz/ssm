@@ -48,7 +48,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               {crumb.onClick ? (
                 <button 
                   onClick={crumb.onClick}
-                  className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-[10px]"
+                  className="text-emerald-400 hover:text-white transition-colors font-black uppercase tracking-[0.5em] text-[10px] cursor-pointer"
                 >
                   {crumb.label}
                 </button>

@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="mb-8">
               <FooterLogo />
             </div>
-            <p className="text-slate-500 max-w-sm mb-10 text-md font-medium leading-relaxed">
+            <p className="text-slate-500 max-w-sm mb-10 text-base font-medium leading-relaxed">
               Empowering the clean energy transition for commercial logistics through smart battery swapping infrastructure.
             </p>
             <div className="flex items-center gap-4">
@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <a 
                   key={i}
                   href="#" 
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all shadow-sm"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all shadow-sm cursor-pointer"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -37,18 +37,74 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="space-y-8">
             <h4 className="font-black text-white uppercase tracking-[0.3em] text-[10px] mb-8 opacity-40">Ecosystem</h4>
             <div className="space-y-5">
-              {["Process", "Hub Locations", "Fleet Portal", "Driver App"].map((link) => (
-                <a key={link} href="#" className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-base">{link}</a>
-              ))}
+              <a 
+                href="/services/assest-financing" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate && onNavigate('lease-to-own');
+                }}
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Process
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate && onNavigate('locator');
+                }}
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Hub Locations
+              </a>
+              <a 
+                href="https://app.swapstationmobility.com/register" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Fleet Portal
+              </a>
+              <a 
+                href="#" 
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Driver App
+              </a>
             </div>
           </div>
 
           <div className="space-y-8">
             <h4 className="font-black text-white uppercase tracking-[0.3em] text-[10px] mb-8 opacity-40">Company</h4>
             <div className="space-y-5">
-              {["Our Mission", "Investors", "Impact 2024", "Careers"].map((link) => (
-                <a key={link} href="#" className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-base">{link}</a>
-              ))}
+              <a 
+                href="/about" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate && onNavigate('about');
+                }}
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Our Mission
+              </a>
+              <a 
+                href="#" 
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Investors
+              </a>
+              <a 
+                href="#" 
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Impact 2024
+              </a>
+              <a 
+                href="#" 
+                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
+              >
+                Careers
+              </a>
             </div>
           </div>
 
@@ -73,7 +129,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
                 <h5 className="font-black text-white text-2xl mb-4 tracking-tight leading-tight">2024 Energy Mobility Report</h5>
                 <p className="text-white mb-10 font-bold text-sm leading-relaxed drop-shadow-md">Explore how swapping is beating static charging in Lagos logistics.</p>
-                <a href="#" className="inline-block font-black text-white text-sm hover:text-emerald-400 transition-colors border-b-2 border-emerald-500 pb-1">Download PDF</a>
+                <a href="#" className="inline-block font-black text-white text-sm hover:text-emerald-400 transition-colors border-b-2 border-emerald-500 pb-1 cursor-pointer">Download PDF</a>
               </div>
             </div>
           </div>
@@ -82,9 +138,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black text-slate-600 uppercase tracking-widest">
           <div>© 2024 SwapStation Mobility. Nigeria.</div>
           <div className="flex gap-10">
-            <button onClick={() => onNavigate && onNavigate('privacy')} className="hover:text-white transition-colors">Privacy</button>
-            <button onClick={() => onNavigate && onNavigate('terms')} className="hover:text-white transition-colors">Legal</button>
-            <button onClick={() => onNavigate && onNavigate('contact')} className="hover:text-white transition-colors">Contact</button>
+            <button onClick={() => onNavigate && onNavigate('privacy')} className="hover:text-white transition-colors cursor-pointer">Privacy</button>
+            <button onClick={() => onNavigate && onNavigate('terms')} className="hover:text-white transition-colors cursor-pointer">Legal</button>
+            <button onClick={() => onNavigate && onNavigate('contact')} className="hover:text-white transition-colors cursor-pointer">Contact</button>
           </div>
         </div>
       </div>

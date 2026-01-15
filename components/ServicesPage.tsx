@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from './PageHeader';
+import StrategicAlignmentCTA from './StrategicAlignmentCTA';
 import { 
   Building2, 
   Zap, 
@@ -10,9 +11,7 @@ import {
   PieChart, 
   ShieldCheck, 
   Activity, 
-  ArrowUpRight, 
-  Briefcase,
-  Plus
+  ArrowUpRight
 } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -199,22 +198,15 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Final CTA Section (#051F19) */}
-      <section className="py-32 px-6 bg-[#051F19]">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl border border-white/10 px-6 py-2 rounded-full text-emerald-400 text-[10px] font-black tracking-[0.4em] uppercase mb-12">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Strategic Alignment</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter mb-10 leading-tight">
+      <StrategicAlignmentCTA
+        heading={
+          <>
             Ready to integrate with <br /> Africa's energy backbone?
-          </h2>
-          <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-[1rem] font-black text-md transition-all flex items-center gap-4 mx-auto group shadow-2xl shadow-emerald-600/20">
-            Contact for Strategic Info
-            <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
-          </button>
-        </div>
-      </section>
+          </>
+        }
+        buttonText="Contact for Strategic Partnerships"
+        buttonOnClick={() => onNavigate('contact')}
+      />
     </div>
   );
 };

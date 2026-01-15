@@ -19,7 +19,7 @@ const Logo: React.FC<{ scrolled: boolean; onNavigate: (page: any) => void; isDar
   return (
     <button 
       onClick={() => onNavigate('home')}
-      className={`flex items-center transition-all duration-700 ease-[0.16, 1, 0.3, 1] ${scrolled ? 'gap-2' : 'gap-4'}`}
+      className={`flex items-center transition-all duration-700 ease-[0.16, 1, 0.3, 1] cursor-pointer ${scrolled ? 'gap-2' : 'gap-4'}`}
     >
      <img src={logo} alt="Logo" className="w-auto h-8" />
     </button>
@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
             >
               <button 
                 onClick={() => handleLinkClick(item.page)}
-                className={`hover:text-emerald-500 transition-colors flex items-center gap-1 py-4 text-xs ${
+                className={`hover:text-emerald-500 transition-colors flex items-center gap-1 py-4 text-xs cursor-pointer ${
                   isActive(item) ? 'text-emerald-500' : ''
                 }`}
               >
@@ -121,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
                           handleLinkClick(child.page);
                           setHoveredNav(null);
                         }}
-                        className={`text-left px-4 py-3 rounded-lg text-xs font-black uppercase tracking-widest transition-colors ${
+                        className={`text-left px-4 py-3 rounded-lg text-xs font-black uppercase tracking-widest transition-colors cursor-pointer ${
                           scrolled && !isDarkMode
                             ? 'text-slate-600 hover:bg-slate-50 hover:text-emerald-600' 
                             : 'text-slate-400 hover:bg-white/5 hover:text-white'
@@ -141,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
           {showThemeToggle && (
             <button
               onClick={onToggleTheme}
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 cursor-pointer ${
                 scrolled && !isDarkMode
                   ? 'bg-slate-100 text-slate-900 hover:bg-slate-200' 
                   : 'bg-white/10 text-white hover:bg-white/20'
@@ -153,7 +153,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
 
           <button 
             onClick={() => onNavigate('locator')}
-            className={`hidden sm:flex items-center gap-2 border-2 px-6 py-2.5 rounded-[15rem] text-xs font-black transition-all uppercase tracking-widest duration-700 ${
+            className={`hidden sm:flex items-center gap-2 border-2 px-6 py-2.5 rounded-[15rem] text-xs font-black transition-all uppercase tracking-widest duration-700 cursor-pointer ${
             scrolled && !isDarkMode
               ? 'border-emerald-600/20 text-emerald-600 hover:bg-emerald-600 hover:text-white' 
               : 'border-white/10 text-white hover:border-emerald-500 hover:bg-emerald-500/10'
@@ -162,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
             <span>Find a Station</span>
           </button>
           
-          <button className={`rounded-[15rem] text-xs font-black transition-all shadow-xl active:scale-95 uppercase tracking-[0.15em] flex items-center gap-2 group ${
+          <button className={`rounded-[15rem] text-xs font-black transition-all shadow-xl active:scale-95 uppercase tracking-[0.15em] flex items-center gap-2 group cursor-pointer ${
             scrolled && !isDarkMode
               ? 'bg-[#020617] hover:bg-slate-800 text-white shadow-slate-950/20 px-7 py-3' 
               : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-600/20 px-8 py-3.5'
@@ -171,7 +171,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
             <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          <button className={`lg:hidden transition-colors duration-700 ${scrolled && !isDarkMode ? 'text-slate-900' : 'text-white'}`}>
+          <button className={`lg:hidden transition-colors duration-700 cursor-pointer ${scrolled && !isDarkMode ? 'text-slate-900' : 'text-white'}`}>
             <Menu className="w-6 h-6" />
           </button>
         </div>
