@@ -55,7 +55,10 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
       role: "Co-Founder", 
       image: "/abiodun.png" 
     },
-    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" }
+    { name: "Rachel Moré-Oshodi", role: "Director, Non-Executive", image: "/rachel.jpeg" },
+    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" },
+    { name: "Subha Nagarajan", role: "Director, Non-Executive", image: "/suba.jpeg" },
+
    
     
   ];
@@ -64,8 +67,8 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
     , ];
 
   const coreTeam = [
-    { name: "Bolarinwa Motoni", role: "CTO", image: "/bola.jpeg" },
-    { name: "Morountodun Obaigbo", role: "Director, infrastructure solution", image: "/tundun.jpeg" },
+    { name: "Bolarinwa Motoni", role: "CTO/ IOT Specialist", image: "/bola.jpeg" },
+    { name: "Morountodun Obaigbo", role: "Director, infrastructure solution", image: "/tundun.jpg" },
     { name: "Kevin Chukwuma Ebirim", role: "IOT Specialist", image: "/kevin.jpeg" },
     { name: "Idongesit Paulinus", role: "HR & Admin", image: "/idee.jpeg" },
     { name: "Adigun Olawale", role: "Operations Officer", image: "/adigun.jpeg" },
@@ -114,13 +117,20 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
 
           {/* Management Grid */}
           <div className="flex-grow grid sm:grid-cols-2 gap-10 lg:gap-16">
-            {management.map((m, i) => (
+            {management.slice(0, 2).map((m, i) => (
               <div key={i} className="max-w-md mx-auto w-full">
                 <TeamCard {...m} delay={i * 0.1} isLarge={true} />
               </div>
             ))}
           </div>
         </div>
+        <div className="flex-grow grid sm:grid-cols-3 gap-10 lg:gap-16 mt-10">
+            {management.slice(2, 5).map((m, i) => (
+              <div key={i} className="max-w-md mx-auto w-full">
+                <TeamCard {...m} delay={i * 0.1} isLarge={true} />
+              </div>
+            ))}
+          </div>
       </section>
 
       

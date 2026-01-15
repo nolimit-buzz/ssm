@@ -233,15 +233,16 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       role: "Co-Founder", 
       image: "/abiodun.png" 
     },
-    { 
-      name: "Okwu Njoku", 
-      role: "Director, Non-Executive", 
-      image: "/okwu.jpg" 
-    },
+    
     { 
       name: "Bolarinwa Motoni", 
-      role: "CTO", 
+      role: "CTO/ IOT Specialist", 
       image: "/bola.jpeg" 
+    },
+    { 
+      name: "Morountodun Obaigbo", 
+      role: "Director, infrastructure solution", 
+      image: "/tundun.jpg" 
     }
   ];
 
