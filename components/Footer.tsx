@@ -106,16 +106,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               >
                 Impact 2024
               </a>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate && onNavigate('careers');
-                }}
-                className="block text-slate-400 hover:text-emerald-400 font-medium transition-colors text-[14px] cursor-pointer"
-              >
-                Careers
-              </a>
             </div>
           </div>
 

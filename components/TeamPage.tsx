@@ -55,9 +55,9 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
       role: "Co-Founder", 
       image: "/abiodun.png" 
     },
-    { name: "Rachel Moré-Oshodi", role: "Director, Non-Executive", image: "/rachel.jpeg" },
+    { name: "Rachel Moré-Oshodi", role: "Director, Non-Executive", image: "/rachel.jpg" },
     { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" },
-    { name: "Subha Nagarajan", role: "Director, Non-Executive", image: "/suba.jpeg" },
+    { name: "Subha Nagarajan", role: "Director, Non-Executive", image: "/subha.jpg" },
 
    
     

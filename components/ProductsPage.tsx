@@ -112,7 +112,8 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
         { icon: Cpu, label: "Control", value: "IoT-connected" },
         { icon: LayoutGrid, label: "Capacity", value: "12 Slots" },
         { icon: Zap, label: "Charging", value: "Simultaneous" },
-        { icon: Activity, label: "Protocol", value: "Smart Sync" }
+        { icon: Activity, label: "Protocol", value: "Smart Sync" },
+        { icon: Activity, label: "Network Uptimes", value: "Targetting 98%" }
       ]
     },
     {
