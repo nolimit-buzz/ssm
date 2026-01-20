@@ -8,7 +8,16 @@ interface TeamPageProps {
   onNavigate: (page: 'home' | 'about' | 'services' | 'contact' | 'team' | 'careers') => void;
 }
 
-const TeamCard: React.FC<{ name: string; role: string; image: string; delay: number; isLarge?: boolean }> = ({ name, role, image, delay, isLarge = false }) => (
+interface TeamCardProps {
+  name: string;
+  role: string;
+  image: string;
+  delay: number;
+  isLarge?: boolean;
+  linkedinUrl?: string;
+}
+
+const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, delay, isLarge = false, linkedinUrl }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -25,11 +34,18 @@ const TeamCard: React.FC<{ name: string; role: string; image: string; delay: num
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-40 transition-opacity" />
       
       {/* Social Overlay on Hover */}
-      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-emerald-600 transition-all">
-          <Linkedin className="w-4 h-4" />
-        </button>
-      </div>
+      {linkedinUrl && (
+        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-emerald-600 transition-all"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+        </div>
+      )}
     </div>
     
     <div className="px-1">
@@ -48,16 +64,18 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
     { 
       name: "Obiora Okoye", 
       role: "Co-Founder", 
-      image: "/obiora.jpg" 
+      image: "/obiora.jpg",
+      linkedinUrl: "https://www.linkedin.com/in/obiora-c-okoye-0b13771" 
     },
     { 
       name: "Abiodun Oni", 
       role: "Co-Founder", 
-      image: "/abiodun.png" 
+      image: "/abiodun.png",
+      linkedinUrl: "https://ng.linkedin.com/in/abiodun-oni-30b96522" 
     },
-    { name: "Rachel Moré-Oshodi", role: "Director, Non-Executive", image: "/rachel.jpg" },
-    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg" },
-    { name: "Subha Nagarajan", role: "Director, Non-Executive", image: "/subha.jpg" },
+    { name: "Rachel Moré-Oshodi", role: "Director, Non-Executive", image: "/rachel.jpg", linkedinUrl: "https://www.linkedin.com/in/rachel-mor%C3%A9-oshodi" },
+    { name: "Okwu Njoku", role: "Director, Non-Executive", image: "/okwu.jpg", linkedinUrl: "https://ng.linkedin.com/in/okwu-njoku-a49aa12" },
+    { name: "Subha Nagarajan", role: "Director, Non-Executive", image: "/subha.jpg", linkedinUrl: "https://www.linkedin.com/in/subha-nagarajan" },
 
    
     
@@ -67,9 +85,9 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
     , ];
 
   const coreTeam = [
-    { name: "Bolarinwa Motoni", role: "CTO/ IOT Specialist", image: "/bola.jpeg" },
-    { name: "Morountodun Obaigbo", role: "Director, infrastructure solution", image: "/tundun.jpg" },
-    { name: "Kevin Chukwuma Ebirim", role: "IOT Specialist", image: "/kevin.jpeg" },
+    { name: "Bolarinwa Motoni", role: "CTO/ IOT Specialist", image: "/bola.jpeg", linkedinUrl: "https://ng.linkedin.com/in/motoni" },
+    { name: "Morountodun Obaigbo", role: "Director, infrastructure solution", image: "/tundun.jpg", linkedinUrl: "https://uk.linkedin.com/in/morountodun-obaigbo" },
+    { name: "Kevin Chukwuma Ebirim", role: "Business Development Consultant", image: "/kevin.jpeg" },
     { name: "Idongesit Paulinus", role: "HR & Admin", image: "/idee.jpeg" },
     { name: "Adigun Olawale", role: "Operations Officer", image: "/adigun.jpeg" },
   ];

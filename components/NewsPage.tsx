@@ -458,7 +458,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
 
       {/* --- FEATURED ARTICLE SLIDER --- */}
       {isLoading ? (
-        <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
+        <section className="px-6 md:px-12 mt-10 relative z-20 mb-20">
           <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col md:flex-row min-h-[500px] items-center justify-center">
               <div className="text-center">
@@ -469,7 +469,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
           </div>
         </section>
       ) : error && newsData.length === 0 ? (
-        <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
+        <section className="px-6 md:px-12 mt-10 relative z-20 mb-20">
           <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl border border-red-100 flex flex-col md:flex-row min-h-[500px] items-center justify-center">
               <div className="text-center p-8">
@@ -481,7 +481,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
           </div>
         </section>
       ) : featuredStories.length > 0 ? (
-        <section className="px-6 md:px-12 -mt-20 relative z-20 mb-20">
+        <section className="px-6 md:px-12 mt-10 relative z-20 mb-20">
           <div className="max-w-7xl mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
@@ -543,7 +543,7 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
                         <Calendar className="w-4 h-4" />
                         <span className="uppercase tracking-widest text-xs">{featuredStory.date}</span>
                      </div>
-                     <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 group-hover:text-emerald-600 transition-colors">
+                    <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 group-hover:text-emerald-600 transition-colors">
                         {featuredStory.title}
                      </h2>
                     <p className="text-slate-500 text-lg font-medium leading-relaxed mb-10 max-w-md">
