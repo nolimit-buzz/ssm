@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
+import { GENERATED_NEWS, NewsItem, transformApiData, truncateExcerpt } from './NewsPage';
 
 interface NewsSectionProps {
   onNavigate?: (page: any) => void;
@@ -9,43 +10,35 @@ interface NewsSectionProps {
   onNavigateToCategory?: (category: string) => void;
 }
 
-const newsData = [
-  {
-    id: 1,
-    category: "Transactions",
-    date: "October 24, 2024",
-    title: "Swap Station Closes $10M Series A Funding Round",
-    excerpt: "Securing capital to expand our infrastructure footprint across 5 new states in Nigeria, led by Blackaion Capital.",
-    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800",
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
-    borderColor: "border-emerald-100"
-  },
-  {
-    id: 2,
-    category: "Milestones",
-    date: "September 12, 2024",
-    title: "250th Swap Hub Deployed in Lagos Mainland",
-    excerpt: "Marking a significant milestone in our mission to densify the urban energy network for last-mile logistics.",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800",
-    color: "text-amber-600",
-    bgColor: "bg-amber-50",
-    borderColor: "border-amber-100"
-  },
-  {
-    id: 3,
-    category: "Press Release",
-    date: "August 05, 2024",
-    title: "Strategic Partnership with Glovo Announced",
-    excerpt: "Powering the next generation of green delivery fleets with zero-downtime swaps and integrated telemetry.",
-    image: "https://images.unsplash.com/photo-1758519289022-5f9dea0d8cdc?q=80&w=2531&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-100"
-  }
-];
-
 const NewsSection: React.FC<NewsSectionProps> = ({ onNavigate, onReadArticle, onNavigateToCategory }) => {
+  const [newsItems, setNewsItems] = useState<NewsItem[]>(GENERATED_NEWS.slice(0, 3));
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(
+          'https://nolimit.buzz/headless/swapstation/wp-json/headless/v1/db?datatype=post&taxonomy=category'
+        );
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch news: ${response.statusText}`);
+        }
+
+        const apiData = await response.json();
+
+        if (apiData && Array.isArray(apiData.data)) {
+          const transformed = apiData.data.map(transformApiData) as NewsItem[];
+          setNewsItems(transformed.slice(0, 3));
+        }
+      } catch (err) {
+        // On error, keep the default generated news
+        console.error('Error fetching news for landing section:', err);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
     <section id="news" className="py-32 px-6 md:px-12 bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto">
@@ -75,7 +68,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ onNavigate, onReadArticle, on
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {newsData.map((item, index) => (
+          {newsItems.map((item, index) => (
             <motion.article
               key={item.id}
               onClick={() => onReadArticle && onReadArticle(item)}
@@ -116,7 +109,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ onNavigate, onReadArticle, on
                 </h3>
                 
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8 flex-grow">
-                  {item.excerpt}
+                  {truncateExcerpt(item.excerpt)}
                 </p>
 
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-emerald-600 transition-colors">

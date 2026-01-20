@@ -43,7 +43,7 @@ interface ApiResponse {
 }
 
 // News Item Type (internal format)
-interface NewsItem {
+export interface NewsItem {
   id: number;
   category: string;
   date: string;
@@ -54,6 +54,7 @@ interface NewsItem {
   bgColor: string;
   borderColor: string;
   slug?: string;
+  isFeatured?: boolean;
 }
 
 // Category color mapping
@@ -77,13 +78,22 @@ const getCategoryColors = (categoryName: string): { color: string; bgColor: stri
 };
 
 // Transform API data to NewsItem format
-const transformApiData = (apiItem: ApiNewsItem): NewsItem => {
+export const transformApiData = (apiItem: ApiNewsItem): NewsItem => {
   // Get the first category from terms (or use 'News' as default)
   const category = apiItem.terms && apiItem.terms.length > 0 
     ? apiItem.terms[0].name 
     : 'News';
   
   const colors = getCategoryColors(category);
+  
+  // Determine if this post is marked as "Featured" in its terms
+  const isFeatured = Array.isArray(apiItem.terms)
+    ? apiItem.terms.some(
+        (term) =>
+          term.name.toLowerCase() === 'featured' ||
+          term.slug.toLowerCase() === 'featured'
+      )
+    : false;
   
   // Format date - since API doesn't provide date, we'll use a placeholder
   // You can modify this if the API starts providing dates
@@ -110,7 +120,16 @@ const transformApiData = (apiItem: ApiNewsItem): NewsItem => {
     bgColor: colors.bgColor,
     borderColor: colors.borderColor,
     slug: apiItem.slug,
+    isFeatured,
   };
+};
+
+export const truncateExcerpt = (text: string): string => {
+  if (!text) return '';
+  // Currently showing a very short teaser (~2/9 of original length)
+  const maxLength = Math.floor(text.length * (2 / 9));
+  if (text.length <= maxLength || maxLength <= 0) return text;
+  return text.slice(0, maxLength).trimEnd() + '...';
 };
 
 // Generate Mock Data (kept as fallback)
@@ -301,7 +320,7 @@ export const NewsCard: React.FC<{ item: NewsItem, index: number, onClick: () => 
       </h3>
       
       <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8 flex-grow line-clamp-3">
-        {item.excerpt}
+        {truncateExcerpt(item.excerpt)}
       </p>
 
       <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-emerald-600 transition-colors mt-auto">
@@ -361,11 +380,16 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
   // Use fetched news data or fallback to mock data
   const allNewsItems = newsData.length > 0 ? newsData : GENERATED_NEWS;
   
-  // Define featured stories (Top 4)
-  const featuredStories = allNewsItems.slice(0, 4);
+  // Define featured stories:
+  // Prefer items explicitly tagged as "Featured" in their terms;
+  // if none are tagged, fall back to the latest 2 items.
+  let featuredStories = allNewsItems.filter((item) => item.isFeatured);
+  if (featuredStories.length === 0) {
+    featuredStories = allNewsItems.slice(0, 2);
+  }
   
-  // The rest of the news for the grid (excluding first 4)
-  const newsGridItems = allNewsItems.slice(4);
+  // Recent Updates grid should show all news items
+  const newsGridItems = allNewsItems;
 
   const categories = useMemo(() => {
     return Array.from(new Set(newsGridItems.map(item => item.category))).sort();
@@ -522,9 +546,9 @@ const NewsPage: React.FC<NewsPageProps> = ({ onNavigate, onReadArticle, onNaviga
                      <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-8 group-hover:text-emerald-600 transition-colors">
                         {featuredStory.title}
                      </h2>
-                     <p className="text-slate-500 text-lg font-medium leading-relaxed mb-10 max-w-md">
-                        {featuredStory.excerpt}
-                     </p>
+                    <p className="text-slate-500 text-lg font-medium leading-relaxed mb-10 max-w-md">
+                       {truncateExcerpt(featuredStory.excerpt)}
+                    </p>
                      <button className="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-slate-900 hover:text-emerald-600 transition-all">
                         Read Full Story <ArrowRight className="w-4 h-4" />
                      </button>
