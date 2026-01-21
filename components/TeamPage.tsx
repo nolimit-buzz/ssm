@@ -103,52 +103,41 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
         description="The visionaries and operators building Africa's electric mobility infrastructure."
       />
 
-      {/* Management Section (Light Theme) */}
-      <section className="max-w-7xl mx-auto py-24 bg-white relative">
-        <div className="inset-0 opacity-[0.02] pointer-events-none select-none" 
-             style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '60px 60px' }} />
+      {/* Founders / Executive Leadership Section */}
+      <section className="py-24 bg-white relative">
+        <div
+          className="absolute inset-0 opacity-[0.02] pointer-events-none select-none"
+          style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '60px 60px' }}
+        />
 
-        <div className="mx-auto flex flex-col md:flex-row gap-16 lg:gap-24 relative z-10">
-          {/* Side Title */}
-          
-          
-          <div className="hidden md:w-[120px] shrink-0 pt-4">
-             {/* <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 0.05, x: 0 }}
-              viewport={{ once: true }}
-              className="absolute top-0 left-0 text-[3rem] lg:text-[4.7rem] font-thin text-slate-900 tracking-[0.2em] uppercase leading-none vertical-text-desktop pointer-events-none select-none"
-             >
-               MANAGEMENT
-             </motion.h2> */}
-             
-             {/* <div className="mt-4 md:hidden">
-            <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px]">LEADERSHIP</span>
-             </div> */}
-          </div>
-          <div className="mb-20 text-center lg:text-left">
-            <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">FOUNDERS</span>
-            <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight">
-              Executive Leadership Team.
-            </h2>
-          </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Top row: text as first column in a 3-column grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 items-start">
+            <div className="md:col-span-1 mb-8 md:mb-0">
+              <span className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">
+                FOUNDERS
+              </span>
+              <h2 className="text-2xl md:text-4xl font-black text-slate-950 tracking-tighter leading-tight">
+                Executive Leadership Team.
+              </h2>
+            </div>
 
-          {/* Management Grid */}
-          <div className="flex-grow grid sm:grid-cols-2 gap-10 lg:gap-16">
             {management.slice(0, 2).map((m, i) => (
               <div key={i} className="max-w-md mx-auto w-full">
                 <TeamCard {...m} delay={i * 0.1} isLarge={true} />
               </div>
             ))}
           </div>
-        </div>
-        <div className="flex-grow grid sm:grid-cols-3 gap-10 lg:gap-16 mt-10">
+
+          {/* Second row: remaining leadership in a 3-column grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-16 mt-10">
             {management.slice(2, 5).map((m, i) => (
               <div key={i} className="max-w-md mx-auto w-full">
                 <TeamCard {...m} delay={i * 0.1} isLarge={true} />
               </div>
             ))}
           </div>
+        </div>
       </section>
 
       
