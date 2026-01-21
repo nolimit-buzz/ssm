@@ -119,7 +119,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
              style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '60px 60px' }} />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
             
             {/* Form Column */}
             <div className="flex flex-col gap-8">
@@ -127,13 +127,13 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-slate-50 border border-slate-100 p-12 rounded-[1rem] shadow-sm flex-grow"
+                className="bg-slate-50 border border-slate-100 p-6 lg:p-12 rounded-[1rem] shadow-sm flex-grow"
               >
                 <h3 className="text-3xl font-black text-slate-900 tracking-tight mb-2">Let's Talk!</h3>
                 <p className="text-slate-500 font-medium mb-12">Get in touch with us using the enquiry form or contact details below.</p>
                 
                 <form className="space-y-6">
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">First Name</label>
                       <input type="text" placeholder="Obiora" className="w-full bg-white border border-slate-200 rounded-[1rem] px-5 py-4 text-slate-900 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all font-medium" />
@@ -163,7 +163,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     </label>
                   </div>
 
-                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-5 rounded-[1rem] font-black text-lg transition-all flex items-center justify-center gap-4 mt-10 group shadow-xl shadow-emerald-600/20 active:scale-[0.98] cursor-pointer">
+                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-5 rounded-[1rem] font-black text-base lg:text-lg transition-all flex items-center justify-center gap-4 mt-10 group shadow-xl shadow-emerald-600/20 active:scale-[0.98] cursor-pointer">
                     Send Strategic Inquiry
                     <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
                   </button>
@@ -182,10 +182,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-slate-50 border border-slate-100 p-8 rounded-[1rem] flex items-center justify-between"
+                className="bg-slate-50 border border-slate-100 p-8 rounded-[1rem] flex flex-col lg:flex-row gap-y-4 lg:gap-0 items-center justify-between"
               >
                 <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Follow our mission</h4>
-                <div className="flex gap-4">
+                <div className="flex  gap-4">
                   {[Linkedin, Twitter, Instagram].map((Icon, i) => (
                     <a key={i} href="#" className="w-12 h-12 rounded-[1rem] bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-emerald-600 hover:text-white transition-all shadow-sm">
                       <Icon className="w-5 h-5" />

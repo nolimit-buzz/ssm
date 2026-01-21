@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Menu, User, ChevronRight, MapPin, ChevronDown, Sun, Moon } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface HeaderProps {
   scrolled: boolean;
@@ -29,6 +30,7 @@ const Logo: React.FC<{ scrolled: boolean; onNavigate: (page: any) => void; isDar
 const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, showThemeToggle, isDarkMode, onToggleTheme }) => {
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [openMobileParent, setOpenMobileParent] = useState<string | null>(null);
 
   const navItems = [
     { 
@@ -73,8 +75,10 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
     }
   }
 
-  // Match main navbar colors for mobile items
-  const mobileTextColor = scrolled ? (isDarkMode ? 'text-slate-300' : 'text-slate-900') : 'text-slate-300';
+  // Colors for mobile trigger icon (hamburger) to match header state
+  const mobileIconColor = scrolled ? (isDarkMode ? 'text-slate-300' : 'text-slate-900') : 'text-white';
+  // Strong, always-legible text color for items inside the mobile panel
+  const mobilePanelTextColor = 'text-slate-900';
 
   return (
     <header 
@@ -179,7 +183,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
 
           {/* Mobile menu toggle */}
           <button 
-            className={`lg:hidden transition-colors duration-700 cursor-pointer ${mobileTextColor}`}
+            className={`lg:hidden transition-colors duration-700 cursor-pointer ${mobileIconColor}`}
             onClick={() => setIsMobileNavOpen(prev => !prev)}
             aria-label="Toggle navigation menu"
           >
@@ -189,44 +193,80 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
       </div>
 
       {/* Mobile navigation panel */}
-      <div
-        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-[0.16,1,0.3,1] ${
-          isMobileNavOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-4 space-y-2 shadow-lg">
-          {navItems.map((item) => (
-            <div key={item.name} className="flex flex-col">
-              <button
-                onClick={() => {
-                  handleLinkClick(item.page);
-                  setIsMobileNavOpen(false);
-                }}
-                className={`flex items-center justify-between py-3 text-[11px] font-black uppercase tracking-[0.2em] ${mobileTextColor}`}
-              >
-                <span>{item.name}</span>
-                {item.children && <ChevronDown className="w-3 h-3 opacity-60" />}
-              </button>
-              {item.children && (
-                <div className="pl-4 space-y-1">
-                  {item.children.map((child) => (
-                    <button
-                      key={child.name}
-                      onClick={() => {
-                        handleLinkClick(child.page);
-                        setIsMobileNavOpen(false);
-                      }}
-                      className="w-full text-left py-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 hover:text-emerald-600"
-                    >
-                      {child.name}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+      <AnimatePresence>
+        {isMobileNavOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: 'auto' }}
+            exit={{ opacity: 0, y: -8, height: 0 }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden overflow-hidden"
+          >
+            <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-4 space-y-2 shadow-lg">
+              {navItems.map((item, index) => {
+            const isOpen = openMobileParent === item.name;
+            const hasChildren = !!item.children && item.children.length > 0;
 
-          <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
+            return (
+              <motion.div
+                  key={item.name}
+                  className="flex flex-col"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05 * index, duration: 0.2 }}
+                >
+                <button
+                  onClick={() => {
+                    if (hasChildren) {
+                      setOpenMobileParent(isOpen ? null : item.name);
+                    } else {
+                      handleLinkClick(item.page);
+                      setIsMobileNavOpen(false);
+                    }
+                  }}
+                  className={`flex items-center justify-between py-3 text-[13px] font-black uppercase tracking-[0.2em] ${mobilePanelTextColor}`}
+                >
+                  <span>{item.name}</span>
+                  {hasChildren && (
+                    <ChevronRight
+                      className={`w-3 h-3 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
+                    />
+                  )}
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {hasChildren && isOpen && (
+                    <motion.div
+                      key={`${item.name}-submenu`}
+                      initial={{ height: 0, opacity: 0, y: -4 }}
+                      animate={{ height: 'auto', opacity: 1, y: 0 }}
+                      exit={{ height: 0, opacity: 0, y: -4 }}
+                      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-4 space-y-1 pt-1 pb-1">
+                        {item.children!.map((child) => (
+                          <button
+                            key={child.name}
+                            onClick={() => {
+                              handleLinkClick(child.page);
+                              setIsMobileNavOpen(false);
+                              setOpenMobileParent(null);
+                            }}
+                            className="w-full text-left py-2 text-[11px] font-black uppercase tracking-[0.2em] text-slate-700 hover:text-emerald-600"
+                          >
+                            {child.name}
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+
+              <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
             <button
               onClick={() => {
                 onNavigate('locator');
@@ -251,8 +291,10 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
-        </div>
-      </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
