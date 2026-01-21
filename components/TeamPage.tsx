@@ -104,7 +104,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onNavigate }) => {
       />
 
       {/* Founders / Executive Leadership Section */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 px-6 md:px-12 bg-white relative">
         <div
           className="absolute inset-0 opacity-[0.02] pointer-events-none select-none"
           style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '60px 60px' }}

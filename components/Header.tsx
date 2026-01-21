@@ -28,6 +28,7 @@ const Logo: React.FC<{ scrolled: boolean; onNavigate: (page: any) => void; isDar
 
 const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, showThemeToggle, isDarkMode, onToggleTheme }) => {
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const navItems = [
     { 
@@ -71,6 +72,9 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
       headerClasses = 'bg-white/95 border-b border-slate-200/60 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.03)]';
     }
   }
+
+  // Match main navbar colors for mobile items
+  const mobileTextColor = scrolled ? (isDarkMode ? 'text-slate-300' : 'text-slate-900') : 'text-slate-300';
 
   return (
     <header 
@@ -162,7 +166,9 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
             <span>Find a Station</span>
           </button>
           
-          <button className={`rounded-[15rem] text-xs font-black transition-all shadow-xl active:scale-95 uppercase tracking-[0.15em] flex items-center gap-2 group cursor-pointer ${
+          {/* Primary CTA - show on md+ only (hidden on mobile) */}
+          <button 
+            className={`hidden md:flex rounded-[15rem] text-xs font-black transition-all shadow-xl active:scale-95 uppercase tracking-[0.15em] items-center gap-2 group cursor-pointer ${
             scrolled && !isDarkMode
               ? 'bg-[#020617] hover:bg-slate-800 text-white shadow-slate-950/20 px-7 py-3' 
               : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-600/20 px-8 py-3.5'
@@ -171,9 +177,80 @@ const Header: React.FC<HeaderProps> = ({ scrolled, currentPage, onNavigate, show
             <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          <button className={`lg:hidden transition-colors duration-700 cursor-pointer ${scrolled && !isDarkMode ? 'text-slate-900' : 'text-white'}`}>
+          {/* Mobile menu toggle */}
+          <button 
+            className={`lg:hidden transition-colors duration-700 cursor-pointer ${mobileTextColor}`}
+            onClick={() => setIsMobileNavOpen(prev => !prev)}
+            aria-label="Toggle navigation menu"
+          >
             <Menu className="w-6 h-6" />
           </button>
+        </div>
+      </div>
+
+      {/* Mobile navigation panel */}
+      <div
+        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-[0.16,1,0.3,1] ${
+          isMobileNavOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-4 space-y-2 shadow-lg">
+          {navItems.map((item) => (
+            <div key={item.name} className="flex flex-col">
+              <button
+                onClick={() => {
+                  handleLinkClick(item.page);
+                  setIsMobileNavOpen(false);
+                }}
+                className={`flex items-center justify-between py-3 text-[11px] font-black uppercase tracking-[0.2em] ${mobileTextColor}`}
+              >
+                <span>{item.name}</span>
+                {item.children && <ChevronDown className="w-3 h-3 opacity-60" />}
+              </button>
+              {item.children && (
+                <div className="pl-4 space-y-1">
+                  {item.children.map((child) => (
+                    <button
+                      key={child.name}
+                      onClick={() => {
+                        handleLinkClick(child.page);
+                        setIsMobileNavOpen(false);
+                      }}
+                      className="w-full text-left py-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 hover:text-emerald-600"
+                    >
+                      {child.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">
+            <button
+              onClick={() => {
+                onNavigate('locator');
+                setIsMobileNavOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 border-2 border-emerald-500/40 text-emerald-400 px-4 py-2.5 rounded-[15rem] text-[11px] font-black uppercase tracking-[0.2em]"
+            >
+              <MapPin className="w-4 h-4" />
+              <span>Find a Station</span>
+            </button>
+
+            {/* Mobile Get Started CTA */}
+            <button
+              onClick={() => {
+                // Keep consistent with main CTA; can be wired to a specific page later if needed
+                onNavigate('contact');
+                setIsMobileNavOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 rounded-[15rem] bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 text-[11px] font-black uppercase tracking-[0.2em] shadow-emerald-600/30 shadow-lg"
+            >
+              Get Started
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </header>
