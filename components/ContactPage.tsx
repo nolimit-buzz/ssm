@@ -201,29 +201,29 @@ const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               {/* Global Contact Info */}
               <div className="space-y-10">
                  <div className="flex gap-6 group">
-                   <div className="w-14 h-14 rounded-[1rem] bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
-                     <Mail className="w-6 h-6" />
+                   <div className="w-10 lg:w-14 h-10 lg:h-14 rounded-[1rem] bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
+                     <Mail className="w-5 lg:w-6 h-5 lg:h-6 flex-shrink-0" />
                    </div>
                    <div>
                      <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">Quick Contact</div>
-                     <div className="text-2xl font-bold text-slate-900 tracking-tight">info@swapstation.mobility</div>
+                     <div className="text-lg lg:text-2xl font-bold text-slate-900 tracking-tight">info@swapstation.mobility</div>
                    </div>
                  </div>
 
                  <div className="flex gap-6 group">
-                   <div className="w-14 h-14 rounded-[1rem] bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
-                     <Phone className="w-6 h-6" />
+                   <div className="w-10 lg:w-14 h-10 lg:h-14 rounded-[1rem] bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
+                     <Phone className="w-5 lg:w-6 h-5 lg:h-6 flex-shrink-0" />
                    </div>
                    <div>
                      <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">Phone Number</div>
-                     <div className="text-2xl font-bold text-slate-900 tracking-tight">Nigeria: +234 810 555 0123</div>
-                     <div className="text-sm text-slate-500 font-medium">Lagos Office HQ</div>
+                     <div className="text-lg lg:text-2xl font-bold text-slate-900 tracking-tight">Nigeria: +234 810 555 0123</div>
+                     <div className="text-xs lg:text-sm text-slate-500 font-medium">Lagos Office HQ</div>
                    </div>
                  </div>
 
                  <div className="flex gap-6 group">
-                   <div className="w-14 h-14 rounded-[1rem] bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
-                     <Building2 className="w-6 h-6" />
+                   <div className="w-10 lg:w-14 h-10 lg:h-14 rounded-[1rem] bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
+                     <Building2 className="w-5 lg:w-6 h-5 lg:h-6 flex-shrink-0" />
                    </div>
                    <div>
                      <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">Headquarter</div>
